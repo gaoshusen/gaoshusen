@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.loading {
+		    max-width: 100%;
+		}
+	</style>
+	</head>
+
+	<body style="background:#FFF;text-align: center;margin-top: 30%;">
+		<img class="loading" src="../image/loading.gif">
+	</body>
+	<script src="../script/api.js"></script>
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script src="../script/system.js"></script>
+	<script type="text/javascript">
+		apiready = function(){
+
+		if (debug==false) {		//如果测试参数为false才启用推送功能			
+			// 极光推送初始化   测试条件下无效，先注释
+			var ajpush = api.require('ajpush');
+			ajpush.init(function(ret) {
+			    if (ret && ret.status){
+			        //success
+			    }
+			});
+			var ajpush = api.require('ajpush');
+			ajpush.getRegistrationId(function(ret) {
+			    var registrationId = ret.id;
+			});
+			var ajpush = api.require('ajpush');
+			ajpush.setListener(
+			    function(ret) {
+			         var id = ret.id;
+			         var title = ret.title;
+			         var content = ret.content;
+			         var extra = ret.extra;
+			    }
+			);
+		};
+
+			api.openWin({
+				name: 'index',
+				url: './index.html',
+				bounces: false,
+				slidBackEnabled:false,
+				animation:{type:"none"}
+			});
+		};
+	</script>
+</html>

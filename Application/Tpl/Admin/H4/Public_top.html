@@ -1,0 +1,24 @@
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <volist name="topMenuList" id="T">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="<{:U('Manage/index')}>?mid=<{$T.id}>"><i class="fa <{$T.icons}>">&nbsp;&nbsp;<{$T.mnname}></i> </a>
+            </volist>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            
+            <li>
+                <span class="m-r-sm text-muted welcome-message"><a href="__ROOT__" title="返回首页"><i class="fa fa-home">后台首页</i></a></span>
+            </li>
+            <li>
+                <a href="/" title="预览网站" target="_blank" ><span class="m-r-sm text-muted welcome-message"><i class="fa fa fa-globe">预览网站</i></span></a>
+            </li>  
+            <li class="dropdown hidden-xs">
+                <a class="right-sidebar-toggle" aria-expanded="false">
+                    <i class="fa fa-tasks"></i> 主题
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

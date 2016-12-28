@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>我的升级券</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="spread nameHead" >
+			<section class="sect01">
+				<p>
+					<span class="name" id="usrName"></span>
+					<span class="grade"><img id="lvImg" src="" alt=""></span>
+				</p>
+			</section>
+			
+			<section class="sect02">
+				<div class="tit" id="title"></div>
+				<div class="ewm">
+					<img id="myqr" src="" alt="">					
+				</div>
+				<div class="btn">
+					<a class="sub" onclick="shareMe();">分 享</a>				
+				</div>
+				
+			</section>
+
+			
+		</section>
+
+	</article>
+
+	
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+		var qrsrc	=	localStorage.arsrc;
+		$('#myqr').attr('src',qrsrc);
+		$('#usrName').html(localStorage.mname);
+		$('#title').html(localStorage.mname+"二维码");
+		$('#lvImg').attr("src","../image/"+localStorage.lvimg);
+	}
+	
+	function shareMe () {
+		api.actionSheet({
+		    title: '分享收藏',
+		    cancelTitle: '取消',
+		    //destructiveTitle: '红色警告按钮',
+		    buttons: ['分享微信朋友圈','分享微信好友','分享QQ好友','分享QQ空间'],
+		    style:{
+		    	fontNormalColor:'#d84e43',
+		    }
+		},function( ret, err ){
+		    if( ret ){
+		     if(ret.buttonIndex==1){
+	           wxShare('timeline');
+	         }
+	         if(ret.buttonIndex==2){
+	           wxShare('session');
+	         }
+	         if(ret.buttonIndex==3){
+	           qqShare('QFriend');
+	         }
+	         if(ret.buttonIndex==4){
+	           qqShare('QZone');
+	         }
+		    }
+		});
+	}
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+
+	function wxShare(sceneKey){
+	   	var wx = api.require('wx');
+	   	wx.isInstalled(function(ret, err){ //检测是否安装了微信客户端
+		   
+		    if(ret.installed){
+				wx.shareWebpage({
+					    apiKey: '',
+					    thumb: localStorage.arsrc,
+					    scene: sceneKey,
+					    title: '全民私包',
+					    description: '全民私包，红包抢不停！',
+					    contentUrl:'http://wxfx.sbei.cn/index.php/Member'
+					}, function(retrun, errors){
+
+				    if(retrun.status){
+				        api.alert({msg:"分享成功!"}); 
+				    }
+			  });
+		    }else{
+		        alert('当前设备未安装微信客户端');
+		    }
+		});
+		   
+	}
+	     
+	      function qqShare(sharetp){
+		   var qq = api.require('qq');
+		   qq.installed(function(ret, err){ //检测是否安装了微信客户端
+			    if(ret.status){
+		        	qq.shareNews({
+					    url:'http://wxfx.sbei.cn/index.php/Member',
+					    title:'全民私包',
+					    description:'',
+					    imgUrl:localStorage.arsrc,
+					    type:sharetp
+					},function(retrun, errors){
+						if(retrun.status){
+					        api.alert({msg:"分享成功!"}); 
+					    }
+					});
+			    }else{
+			        alert('当前设备未安装QQ客户端');
+			    }
+			});
+		   
+	     }
+
+</script>
+</body>
+</html>

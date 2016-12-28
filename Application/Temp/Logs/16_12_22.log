@@ -1,0 +1,2747 @@
+[ 2016-12-22T08:57:30+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T08:57:33+08:00 ] 127.0.0.1 /index.php/admin
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.015600s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T08:57:40+08:00 ] 127.0.0.1 /index.php/admin/Index/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_user` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `t_user` SET `thistime`=1482368260,`lasttime`='1482320055',`thisip`='2130706433',`lastip`='2130706433' WHERE ( id=1 ) [ RunTime:0.000000s ]
+SQL: UPDATE `t_user` SET `logins`=logins+1 WHERE ( id=1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_log` [ RunTime:0.015600s ]
+SQL: INSERT INTO `t_log` (`usr`,`module_name`,`action_name`,`info`,`logtime`) VALUES ('admin','Index','login','登录成功',1482368260) [ RunTime:0.000000s ]
+
+[ 2016-12-22T08:57:41+08:00 ] 127.0.0.1 /index.php/admin/Manage/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='index' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=44 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=0 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=74 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=116 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=75 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=85 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=92 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=95 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=100 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T08:57:41+08:00 ] 127.0.0.1 /index.php/admin/Manage/main
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='main' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=45 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: UsrID D:\wenxin\Application\Temp\Cache\Admin\6cac2569830c40ddaf73b29f3ec89a33.php 第 26 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T08:57:41+08:00 ] 127.0.0.1 /Public/H4/js/plugins/layer/skin/moon/style.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+
+[ 2016-12-22T08:57:51+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: mid0 D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 10 行.
+
+[ 2016-12-22T08:57:59+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T08:59:34+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 )  [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:01:42+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 )  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: addtime D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T09:02:12+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 )  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: ID D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T09:05:25+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 )  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: addtime D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T09:05:26+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 )  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: addtime D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T09:08:08+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:08:54+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:11:12+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:11:35+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:11:53+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:07+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:08+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:08+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:09+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:10+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:12+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:16+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:12:16+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:14:01+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:15:33+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:15:34+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:15:35+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:15:36+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:15:37+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:15:37+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:17:00+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.010000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:01+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:15+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:16+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:35+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:43+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:17:44+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:18:02+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: x D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 20 行.
+
+[ 2016-12-22T09:23:59+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 模板不存在[./Application/Tpl/admin/H4/Total_lists.html]
+
+[ 2016-12-22T09:25:46+08:00 ] 127.0.0.1 /index.php/admin/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:25:53+08:00 ] 127.0.0.1 /index.php/admin/Index/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_user` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `t_user` SET `thistime`=1482369953,`lasttime`='1482368260',`thisip`='2130706433',`lastip`='2130706433' WHERE ( id=1 ) [ RunTime:0.000000s ]
+SQL: UPDATE `t_user` SET `logins`=logins+1 WHERE ( id=1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_log` [ RunTime:0.000000s ]
+SQL: INSERT INTO `t_log` (`usr`,`module_name`,`action_name`,`info`,`logtime`) VALUES ('admin','Index','login','登录成功',1482369953) [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:25:53+08:00 ] 127.0.0.1 /index.php/admin/Manage/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='index' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=44 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=0 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=74 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=116 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=75 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=85 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=92 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=95 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=100 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.010000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:25:53+08:00 ] 127.0.0.1 /index.php/admin/Manage/main
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='main' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=45 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: UsrID D:\wenxin\Application\Temp\Cache\Admin\6cac2569830c40ddaf73b29f3ec89a33.php 第 26 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:25:54+08:00 ] 127.0.0.1 /Public/H4/js/plugins/layer/skin/moon/style.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Public
+
+[ 2016-12-22T09:25:56+08:00 ] 127.0.0.1 /index.php/admin/Manage/index?mid=1
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='index' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=44 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=0 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=1 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=31 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=33 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.001000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=59 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=7 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.001000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( pid=2 and is_show=1 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:25:56+08:00 ] 127.0.0.1 /index.php/admin/Manage/main
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Manage' and action_name='main' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=45 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: UsrID D:\wenxin\Application\Temp\Cache\Admin\6cac2569830c40ddaf73b29f3ec89a33.php 第 26 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:25:56+08:00 ] 127.0.0.1 /Public/H4/js/plugins/layer/skin/moon/style.css
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Public
+
+[ 2016-12-22T09:25:58+08:00 ] 127.0.0.1 /index.php/admin/Set/basic??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Set' and action_name='basic' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=32 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_config` [ RunTime:0.004000s ]
+SQL: SELECT `config_value` FROM `t_config` WHERE ( config_tag='basic' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: copyrighter D:\wenxin\Application\Lib\Action\Admin\SetAction.class.php 第 15 行.
+NOTIC: [2] scandir(./Application/Tpl/Index,./Application/Tpl/Index):  D:\wenxin\Application\Lib\Action\Admin\SetAction.class.php 第 19 行.
+NOTIC: [2] scandir(./Application/Tpl/Index): failed to open dir: No such file or directory D:\wenxin\Application\Lib\Action\Admin\SetAction.class.php 第 19 行.
+NOTIC: [2] scandir(): (errno 2): No such file or directory D:\wenxin\Application\Lib\Action\Admin\SetAction.class.php 第 19 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: windowTitle D:\wenxin\Application\Temp\Cache\Admin\c36d2a38f6fd51b1016e9f97c96c4eb7.php 第 10 行.
+NOTIC: [8] Undefined variable: WXappid D:\wenxin\Application\Temp\Cache\Admin\c36d2a38f6fd51b1016e9f97c96c4eb7.php 第 148 行.
+NOTIC: [8] Undefined variable: WXappsecret D:\wenxin\Application\Temp\Cache\Admin\c36d2a38f6fd51b1016e9f97c96c4eb7.php 第 154 行.
+NOTIC: [8] Undefined variable: WXtoken D:\wenxin\Application\Temp\Cache\Admin\c36d2a38f6fd51b1016e9f97c96c4eb7.php 第 160 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:26:11+08:00 ] 127.0.0.1 /index.php/admin/Sys/logs??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Sys' and action_name='logs' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=34 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_user` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_log` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_log` WHERE ( id>0 ) ORDER BY id desc  [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001001s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:26:34+08:00 ] 127.0.0.1 /index.php/admin/Usr/add??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='add' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: id D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 45 行.
+NOTIC: [8] Undefined variable: username D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 46 行.
+NOTIC: [8] Undefined variable: nickname D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 52 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 70 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: photo D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 83 行.
+NOTIC: [8] Undefined variable: photo D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 89 行.
+NOTIC: [8] Undefined variable: status D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 97 行.
+NOTIC: [8] Undefined variable: status D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 100 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:26:35+08:00 ] 127.0.0.1 /index.php/admin/Usr/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='index' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 非法操作:index
+
+[ 2016-12-22T09:26:39+08:00 ] 127.0.0.1 /index.php/admin/Usr/uploadpic
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.004001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:26:40+08:00 ] 127.0.0.1 /Upload/image/undefined
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Upload
+
+[ 2016-12-22T09:36:47+08:00 ] 127.0.0.1 /index.php/admin/Usr/execution
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='execution' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=47 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `t_user` WHERE ( username='' ) LIMIT 1   [ RunTime:0.002000s ]
+
+[ 2016-12-22T09:40:35+08:00 ] 127.0.0.1 /index.php/admin/Usr/roles??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='roles' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=35 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_user`  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: usrlst D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 0 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 7 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 8 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+NOTIC: [8] Undefined offset: 6 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:40:44+08:00 ] 127.0.0.1 /index.php/admin/Usr/addrole
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.002000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='addrole' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=50 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: windowTitle D:\wenxin\Application\Temp\Cache\Admin\e42f4f7073ffb7ce814a3a463c7f8101.php 第 10 行.
+NOTIC: [8] Undefined variable: id D:\wenxin\Application\Temp\Cache\Admin\e42f4f7073ffb7ce814a3a463c7f8101.php 第 45 行.
+NOTIC: [8] Undefined variable: name D:\wenxin\Application\Temp\Cache\Admin\e42f4f7073ffb7ce814a3a463c7f8101.php 第 46 行.
+NOTIC: [8] Undefined variable: des D:\wenxin\Application\Temp\Cache\Admin\e42f4f7073ffb7ce814a3a463c7f8101.php 第 52 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:40:54+08:00 ] 127.0.0.1 /index.php/admin/Usr/roleaction
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='roleaction' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_role` (`id`,`name`,`des`) VALUES (0,'111','111') [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_log` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_log` (`usr`,`module_name`,`action_name`,`info`,`logtime`) VALUES ('admin','Usr','roleaction','角色[111]执行操作[add]成功',1482370854) [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:40:54+08:00 ] 127.0.0.1 /index.php/admin/Usr/roles
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='roles' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=35 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_user`  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: usrlst D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 0 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 7 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 8 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+NOTIC: [8] Undefined offset: 6 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+NOTIC: [8] Undefined offset: 9 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:42:36+08:00 ] 127.0.0.1 /index.php/admin/Usr/delrole?rid=9
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='delrole' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.002000s ]
+SQL: DELETE FROM `t_role` WHERE ( id=9 ) [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: dataPost D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 164 行.
+SQL: SHOW COLUMNS FROM `t_log` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_log` (`usr`,`module_name`,`action_name`,`info`,`logtime`) VALUES ('admin','Usr','delrole','删除角色[id:9]执行操作[]成功',1482370956) [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:42:37+08:00 ] 127.0.0.1 /index.php/admin/Usr/roles
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='roles' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=35 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_user`  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: usrlst D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 0 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 7 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+NOTIC: [8] Undefined offset: 8 D:\wenxin\Application\Lib\Action\Admin\UsrAction.class.php 第 135 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+NOTIC: [8] Undefined offset: 6 D:\wenxin\Application\Temp\Cache\Admin\5a6a8cae9286124bdd5f98387577ace8.php 第 59 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:42:41+08:00 ] 127.0.0.1 /index.php/admin/Usr/lists??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=8 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_user`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+NOTIC: [2] date() expects parameter 2 to be long, string given D:\wenxin\Application\Temp\Cache\Admin\a23a763c8c71c319b0a5daa506042d4d.php 第 36 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:42:41+08:00 ] 127.0.0.1 /Upload/image/undefined
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Upload
+
+[ 2016-12-22T09:42:54+08:00 ] 127.0.0.1 /index.php/admin/Usr/add??v=4.0
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='add' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_role` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_role`  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: id D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 45 行.
+NOTIC: [8] Undefined variable: username D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 46 行.
+NOTIC: [8] Undefined variable: nickname D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 52 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 70 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: rid D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 74 行.
+NOTIC: [8] Undefined variable: photo D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 83 行.
+NOTIC: [8] Undefined variable: photo D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 89 行.
+NOTIC: [8] Undefined variable: status D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 97 行.
+NOTIC: [8] Undefined variable: status D:\wenxin\Application\Temp\Cache\Admin\6a1167e04facd74dde0f24a9e41b37f3.php 第 100 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:42:55+08:00 ] 127.0.0.1 /index.php/admin/Usr/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Usr' and action_name='index' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 非法操作:index
+
+[ 2016-12-22T09:43:00+08:00 ] 127.0.0.1 /index.php/admin/Usr/uploadpic
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.003000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T09:43:00+08:00 ] 127.0.0.1 /Upload/image/undefined
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Upload
+
+[ 2016-12-22T09:52:42+08:00 ] 127.0.0.1 /index.php/admin/Usr/uploadpic
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T09:52:42+08:00 ] 127.0.0.1 /Upload/image/undefined
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Upload
+
+[ 2016-12-22T10:26:53+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `t_member` WHERE ( pid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T10:27:27+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( pid=14790917771214 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T10:27:53+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T10:28:28+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.016600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016600s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T10:34:50+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T11:23:52+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.010000s ]
+
+[ 2016-12-22T11:23:53+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:24:13+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:26:19+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:27:20+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:27:35+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 17 行.
+
+[ 2016-12-22T11:28:10+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 19 行.
+
+[ 2016-12-22T11:28:11+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 19 行.
+
+[ 2016-12-22T11:28:42+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 19 行.
+
+[ 2016-12-22T11:28:43+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 19 行.
+
+[ 2016-12-22T11:29:08+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: muysum D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 19 行.
+
+[ 2016-12-22T11:29:21+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:29:28+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.010000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:29:47+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:30:41+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 模板不存在[./Application/Tpl/admin/H4/Total_lists.html]
+
+[ 2016-12-22T11:30:49+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:30:59+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:31:18+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:31:54+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:32:20+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:32:20+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.010000s ]
+
+[ 2016-12-22T11:34:09+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:34:21+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:34:53+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:35:20+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:48:46+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:48:47+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.005001s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T11:49:01+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T11:49:25+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001001s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:50:45+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:52:59+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:53:09+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:54:01+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T11:57:35+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T14:13:24+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_member` WHERE ( mid=14790917771214 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T14:45:27+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( $id=1 )  [ RunTime:0.000000s ]
+ERR: 1054:Unknown column '$id' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( $id=1 ) 
+
+[ 2016-12-22T14:45:41+08:00 ] 127.0.0.1 /index.php/admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( id=1 )  [ RunTime:0.000000s ]
+
+[ 2016-12-22T16:05:22+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:05:43+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:05:44+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:05:45+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:06:19+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:06:21+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:06:50+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:06:59+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:00+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:12+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:13+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:22+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015600s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:23+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:40+08:00 ] 127.0.0.1 /index.php/Api/User/getBankName
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:07:46+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:08:04+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:08:06+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:08:23+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015600s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:08:24+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:09:10+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:09:46+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:10:17+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:26+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:27+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:28+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:37+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:38+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:10:58+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T16:11:16+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:11:42+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.015600s ]
+INFO: [ route_check ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:22:25+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:22:37+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:22:38+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:23:46+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:23:47+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:23:48+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:24:30+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-22T16:24:43+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.010000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:24:44+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:25:40+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T16:29:57+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 参数错误或者未定义:number
+
+[ 2016-12-22T16:30:06+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: No such file or directory D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:32:08+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:32:18+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:34:16+08:00 ] 127.0.0.1 /index.php/Api/User/getbankname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2411 行.
+
+[ 2016-12-22T16:37:44+08:00 ] 127.0.0.1 /index.php/Api/User/getbname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:38:08+08:00 ] 127.0.0.1 /index.php/Api/User/getbname/6217000010074079370
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: No such file or directory D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:38:40+08:00 ] 127.0.0.1 /index.php/Api/User/getbname/carbno=6217000010074079370
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: No such file or directory D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:39:19+08:00 ] 127.0.0.1 /index.php/Api/User/getbname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6.2170000100741E+18&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:40:07+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6.2170000100741E+18&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:50:03+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:50:46+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:50:47+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.002000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: No such file or directory D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:50:49+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:51:12+08:00 ] 127.0.0.1 /index.php/Api/User/getBname
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: No such file or directory D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2396 行.
+
+[ 2016-12-22T16:55:07+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:55:22+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:30+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:31+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:32+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:33+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:58+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:56:59+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.002000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:57:08+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:57:09+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:58:32+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:58:49+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T16:58:50+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T17:00:19+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T17:01:02+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.010000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 12 行.
+
+[ 2016-12-22T17:31:52+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 模板不存在[./Application/Tpl/Admin/H4/Total_lists.html]
+
+[ 2016-12-22T18:03:34+08:00 ] 127.0.0.1 /index.php/Api/User/test
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+
+[ 2016-12-22T18:03:50+08:00 ] 127.0.0.1 /index.php/Api/User/test
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+
+[ 2016-12-22T18:05:01+08:00 ] 127.0.0.1 /index.php/Api/User/test
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+NOTIC: [2] file_get_contents(https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&amp;cardNo=6217000010074079370&amp;cardBinCheck=true): failed to open stream: Result too large D:\wenxin\Application\Lib\Action\Api\UserAction.class.php 第 2658 行.
+
+[ 2016-12-22T19:01:46+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.002000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T19:22:43+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:23:07+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:23:30+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:23:53+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:40:40+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui=CCB )  [ RunTime:0.000000s ]
+ERR: 1054:Unknown column 'CCB' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) 
+
+[ 2016-12-22T19:43:51+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:44:17+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 1054:Unknown column 'CCB' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1  
+
+[ 2016-12-22T19:46:15+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_bank` LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:47:33+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-22T19:48:30+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 1054:Unknown column 'CCB' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1  
+
+[ 2016-12-22T19:49:59+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 1054:Unknown column 'CCB' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1  
+
+[ 2016-12-22T19:50:42+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2016-12-22T19:53:11+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 1054:Unknown column 'CCB' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `t_bank` WHERE ( fanhui=CCB ) LIMIT 1  
+
+[ 2016-12-22T19:53:34+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T19:53:52+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T19:55:03+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bank` WHERE ( fanhui="CCB" ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2016-12-22T19:56:27+08:00 ] 127.0.0.1 /index.php/Admin/Total/lists
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='lists' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=84 ) LIMIT 1   [ RunTime:0.000000s ]
+

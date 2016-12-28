@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - <{$windowTitle}></title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Uploadify/uploadify.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><{$windowTitle}></h5>
+                        <div class="ibox-tools">
+                            <a title="刷新当前页面" href="javascript:location.replace(location.href);">
+                                <i class="fa fa-refresh"></i>
+                            </a> 
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="userForm" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">红包个数：</label>
+                                <div class="col-sm-8">
+                                    <input id="lastname" name="nums" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="输入个数">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">每个红包升级券数：</label>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-8">
+                                        <input id="lastname" name="papernum" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="输入每个升级券数">
+                                        <p>注：此处设置的升级券数量为每个红包都可得到的数量。</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">赞助商：</label>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-8">
+                                        <input id="lastname" name="title" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="输入红包的赞助商">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">赞助商LOGO：[小于130*130的正方形图]</label>
+                                <div class="col-sm-8">
+                                    <img id="logo" src="__PUBLIC__/h4/img/add-1.png" width="65" height="65" border="0" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">LOGO上传：</label>
+                                <div class="col-sm-8">
+                                    <input id="logo_val" type="hidden" name="logo" value="<{$contentInfo.logo}>"><input id="upload_logo" name="upload_logo" type="file" multiple="true" value="" />
+                                    <span class="help-block m-b-none"><i class="fa fa-info-circle"></i>缩略图</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">红包广告：</label>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="adid" id="ad">
+                                            <option value="-1">请选择红包广告</option>
+                                            <?php $adList  =   getADList(); ?>
+                                            <volist name="adList" id="AD">
+                                                <option value="<{$AD.id}>"><{$AD.title}></option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">感谢语：</label>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-8">
+                                        <input id="lastname" name="smark" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请设置感谢语">
+                                    </div>
+                                </div>
+                            </div>                           
+                            
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" onclick="postForm();" type="button">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 全局js -->
+    <script src="__PUBLIC__/H4/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/H4/js/bootstrap.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__PUBLIC__/H4/js/content.min.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="__PUBLIC__/H4/js/jquery.form.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="__PUBLIC__/Uploadify/jquery.uploadify-3.1.min.js?ver=<?php echo rand(0,9999);?>"></script>
+    <script type="text/javascript">
+         //以下是uploadify 文件上传插件
+        try {                                    //单图上传
+          $('#upload_logo').uploadify('destroy');
+          }catch(e)
+          {
+            $('#upload_logo').uploadify({
+                'swf'      : '__PUBLIC__/Uploadify/uploadify.swf',
+                'uploader' : "<{:U('Content/uploadpic')}>",
+                'buttonText' : '<i class="fa fa-upload"></i>  上传图片',
+                'width' : 120,
+                'onUploadSuccess' : function(file, data, response) {
+                    var newdata = data.split("_")[1];
+                    $('#logo').attr('src','/Upload/image/'+newdata);
+                    $('#logo_val').val('/Upload/image/'+newdata);
+                },
+            });
+            $("#upload_logo").css({position: "relative", border: "0px solid", left: "0px"}); 
+            //$("#note_thumb").css({position: "relative",  left: "0px",top: "-30px"}); 
+          };
+        function postForm() {      //提交表单数据
+            var index = layer.load();
+            $("#userForm").ajaxSubmit({
+                 type: "post",
+                 url: "<{:U('givepkt')}>",
+                 dataType: "json",
+                 success: function(result){
+
+                    var getStatu=result.status;
+                    if (getStatu==0) 
+                      {
+                        layer.msg(result.info, {icon:2});
+                      }
+                      else
+                      {
+                        var getData=result.data;
+                        layer.close(index);  
+                        layer.msg(result.info, {icon:1,time:300},function(){
+                            <eq name="isFull" value="1" >
+                            location.replace(location.href);
+                            <else />
+                            parent.location.href="<{:U('packets')}>";
+                            </eq>
+                        });                        
+                      };
+                 }
+             });
+            };        
+    </script>
+
+
+</body>
+
+</html>

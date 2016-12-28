@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - <{$windowTitle}></title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/fm.tagator.jquery.css" rel="stylesheet"/>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><{$windowTitle}></h5>
+                        <div class="ibox-tools">
+                            <a title="刷新当前页面" href="javascript:location.replace(location.href);">
+                                <i class="fa fa-refresh"></i>
+                            </a> 
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="addChannelForm" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">上级栏目：</label>
+                                <div class="col-sm-8">
+                                <select data-placeholder="选择上级栏目..." name="pid" class="form-control" style="width:350px;" tabindex="1">
+                                    <option value="0">----作为顶级栏目----</option>
+                                    <volist name="channel" id="T">
+                                        <option value="<{$T.id}>" <eq name="T.id" value="$pid">selected="selected"</eq> hassubinfo="true"><{$T.name}></option>
+                                        <volist name="T['sublist']" id="S">
+                                        <eq name="S.pid" value="$T.id">
+                                            <option value="<{$S.id}>" <eq name="S.id" value="$pid">selected="selected"</eq> hassubinfo="true">&nbsp;┣<{$S.name}></option>
+                                        </eq>
+                                        </volist>
+                                    </volist>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">内容模型：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" style="width:350px;" name="model" id="model">
+                                        <option value="0">----请选择模型----</option>
+                                    <volist name="modelList" id="M">
+                                        <option value="<{$M.mark}>" <eq name="M.mark" value="$channelInfo.model">selected="selected"</eq> >
+                                        <{$M.title}>
+                                        </option>
+                                    </volist>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">栏目名称：</label>
+                                <div class="col-sm-8">
+                                    <input type="hidden" name="method" value="<{$method}>">
+                                    <input type="hidden" name="id" value="<{$channelInfo['id']}>">
+                                    <input name="name" value="<{$channelInfo['name']}>" class="form-control"  style="width:350px;" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的栏目名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">栏目别称：</label>
+                                <div class="col-sm-8">
+                                    <input name="nick" value="<{$channelInfo['nick']}>" class="form-control" style="width:350px;" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的栏目别称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">栏目标识符：</label>
+                                <div class="col-sm-8">
+                                    <input name="mark" value="<{$channelInfo['mark']}>" class="form-control" style="width:350px;" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的栏目标识符"><i class="fa fa-info-circle"></i> 栏目标识符作为模板中获取内容的识别标识。
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">栏目类型：</label>
+                                <div class="col-sm-8">
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input  type="radio" value="0" name="type" <eq name="channelInfo.type" value="0">checked="checked" </eq>> <i>列表页</i>
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="1" name="type" <eq name="channelInfo.type" value="1">checked="checked" </eq>> <i></i>Web链接
+                                        </label>
+                                        
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="inputUrl" class="form-group" style="display:none;">
+                                <label class="col-sm-3 control-label">Web链接：</label>
+                                <div class="col-sm-8">
+                                    <input id="webURL" name="url" value="<{$channelInfo['url']}>" class="form-control" type="text" placeholder="请输入栏目的链接地址，如是外部链接，请输入带 http:// 开头的完整网址。"><i class="fa fa-info-circle"></i> 如是内部页面，请以 <a href="javascript:void(0);" onclick="autoUrl();">#Site_root#</a> 作为网站根地址。
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">是否在导航中显示：</label>
+                                <div class="col-sm-8">
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="1" name="is_show" <eq name="channelInfo.is_show" value="1">checked="checked" </eq>> <i></i>是</label>
+                                        
+                                        <label>
+                                            <input type="radio" value="0" name="is_show" <eq name="channelInfo.is_show" value="0">checked="checked" </eq>> <i></i>否</label>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">是否在新窗口中打开：</label>
+                                <div class="col-sm-8">
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="1" name="is_target" <eq name="channelInfo.is_target" value="1">checked="checked" </eq>> <i></i>是
+                                        </label>
+                                        
+                                        <label>
+                                            <input type="radio" value="0" name="is_target" <eq name="channelInfo.is_target" value="0">checked="checked" </eq>> <i></i>否</label>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SEO标题：</label>
+                                <div class="col-sm-8">
+                                    <input name="seo_title" value="<{$channelInfo['seo_title']}>" class="form-control" style="width:350px;" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的栏目SEO标题">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SEO关键词：</label>
+                                <div class="col-sm-8">
+                                    <input id="seo_key" name="seo_key" value="<{$channelInfo['seo_key']}>" class="inputTagator form-control" type="text"><input value="" id="activate_tagator" type="hidden" class="operateBtn"><span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 输入标签后按空格或回车键确认。</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SEO描述：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="seo_des" name="seo_des" class="form-control" aria-required="true"><{$channelInfo['seo_des']}></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" onclick="postForm();"  type="button">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 全局js -->
+    <script src="__PUBLIC__/H4/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/H4/js/bootstrap.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__PUBLIC__/H4/js/content.min.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="__PUBLIC__/H4/js/jquery.form.js"></script>    
+    <script src="__PUBLIC__/H4/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/H4/js/fm.tagator.jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input:radio[name="type"]').on('ifChecked', function(event){ 
+                var s = $('input:radio[name="type"]:checked').val();
+                if (s=="1") {   //如果选择“Web链接”则显示链接地址填写框
+                    $('#inputUrl').css('display','block');
+                }else{
+                    $('#inputUrl').css('display','none');
+                };
+            });
+
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            //以下是标签自动分段插件加载
+            $('#activate_tagator').click(function () {
+                if ($('#seo_key').data('tagator') === undefined) {
+                    $('#seo_key').tagator({
+                        //autocomplete: ['17素材', '17素材一', '17素材二', '17素材三', '17素材四', '17素材五', '17素材六', '17素材七', '17素材八',]   //自动完成选项列表，后期可完善
+                    });
+                } else {
+                    $('#seo_key').tagator('destroy');
+                }
+            });
+            
+            $('#activate_tagator').trigger('click');
+            
+            $('#getvalue').click(function () {
+                alert($("#seo_key").val());
+            });
+
+
+        });
+        
+        function autoUrl () {
+            $('#webURL').val('#Site_root#/');
+            $('#webURL').focus();
+        }
+
+        function postForm() {      //提交表单数据
+            $("#addChannelForm").ajaxSubmit({
+                 type: "post",
+                 url: "<{:U('execution')}>",
+                 dataType: "json",
+                 success: function(result){
+                    var getStatu=result.status;
+                    if (getStatu==0) 
+                      {
+                        layer.msg(result.info, {icon:2});
+                      }
+                      else
+                      {
+                        var getData=result.data;
+                        layer.msg(result.info, {icon:1,time:300},function(){
+                            <eq name="isFull" value="1" >
+                            location.replace(location.href);
+                            <else />
+                            parent.location.href="<{:U('lists')}>";
+                            </eq>
+                        });
+                      };
+                 }
+             });
+            };
+    </script>
+
+
+</body>
+
+</html>

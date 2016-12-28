@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/phone/css/reset.css">
+	    <link rel="stylesheet" href="__PUBLIC__/phone/css/style2.css">
+		<script type="text/javascript" src="__PUBLIC__/phone/script/index.js"></script>
+	</head>
+	<body id="data">
+		<header class="header">
+			<div class="headerTop">
+				<div class="back">
+					<span></span>
+				</div>
+				<h3 class="logo">
+					数据统计
+				</h3>
+			</div>
+			<div class="tips">
+				<div class="tipsName">
+					<span>{$minfo['mname']}</span>
+					<img src="__PUBLIC__/phone/image/baiyinhuiyuan{$minfo['dengji']}.png"/>
+				</div>
+				<a class="sign">
+					会员号：<span>{$minfo['moblie']}</span>
+				</a>
+			</div>
+		</header>
+		<section class="content">
+			<dl class="contentTop">
+				<dt>总体收入统计</dt>
+				<dd>预计收入<span>77700<b>元</b></span></dd>
+				<dd>实际收入<span>{$dataSum}<b>元</b></span></dd>
+			</dl>
+			<dl class="contentBottom">
+				<dt>商城劵收入统计</dt>
+				<dd>预计收入<span>7770<b>张</b></span></dd>
+				<dd>实际收入<span>{$minfo['shopsum']}<b>张</b></span></dd>
+			</dl>
+			<div class="middle">
+				收入明细
+			</div>
+			<div class="main">
+				<div class="mianTop" id="mianTop">
+					<div class="mianTopL">
+						<a href="javascript:;" class="active">总体收入统计</a>
+					</div>
+					<div class="mianTopR">
+						<a href="javascript:;">商城劵收入统计</a>
+					</div>
+				</div>
+				<ul class="mainBottom">
+				<volist name="mnybill" id="mb">
+					<li class="list">
+						<ul class="day">
+							<li class="dayText">{$mb['z']}</li>
+							<li class="dayNum"><time>{$mb['rq']}</time></li>
+						</ul>
+						<if condition="$mnybillb['billstatus'] eq 1 ">
+						<div class="pic">
+							
+						</div>
+						<else />
+						<div class="picZ">
+							
+						</div>
+						</if>	
+						<ul class="tips">
+							<li class="tipsNum">{$mb['billnum']}</li>
+							<li class="tipsText">{$mb['smark']}</li>
+						</ul>
+					</li>
+				</volist>
+				</ul>
+				<ul class="mainBottom dp">
+				<volist name="shopbill" id="sb">
+					<li class="list">
+						<ul class="day">
+							<li class="dayText">{$sb['z']}</li>
+							<li class="dayNum"><time>{$sb['rq']}</time></li>
+						</ul>
+						<if condition="$sb['billstatus'] eq 1 ">
+						<div class="pic">
+							
+						</div>
+						<else />
+						<div class="picZ">
+							
+						</div>
+						</if>						
+						<ul class="tips">
+							<li class="tipsNum">{$sb['billnum']}</li>
+							<li class="tipsText">{$sb['smark']}</li>
+						</ul>
+					</li>
+				</volist>
+				</ul>
+			</div>
+		</section>
+	</body>
+	<script>
+		window.onload=function(){
+			var mianTopA=document.querySelectorAll('#mianTop a');
+			var mainBottomShow=document.querySelectorAll('.main .mainBottom');
+			for (var i = 0; i < mianTopA.length; i++) {
+				mianTopA[i].index=i;
+				mianTopA[i].onclick=function(){
+					for (var i = 0; i < mianTopA.length; i++) {
+						mianTopA[i].className="";
+						mainBottomShow[i].className="mainBottom dp";
+					}
+					this.className="active";
+					mainBottomShow[this.index].className="mainBottom";
+				}
+			}
+			
+		}
+	</script>
+	
+</html>

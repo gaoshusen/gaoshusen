@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - 数据库备份还原</title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>数据库管理 <small>数据库备份/还原</small></h5>
+                        <div class="ibox-tools">
+                            <a title="刷新当前页面" href="javascript:location.replace(location.href);">
+                                <i class="fa fa-refresh"></i>
+                            </a> 
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>                            
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" onclick="backone(0)"><i class="fa fa-plus"></i> 创建数据库备份</button>
+                    <div class="ibox-content">
+                        <table class="table table-border table-bordered table-hover table-bg" id="menutable">
+                          <thead>
+                            <tr class="text-c">
+                              <th>序号</th>
+                              <th>文件名</th>
+                              <th>创建时间(倒序排列)</th>
+                              <th>文件大小</th>
+                              <th>操作</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tb">
+                          <notempty  name="lists">
+                          <foreach name="lists" key="key" item="row">
+                            <tr class="text-c">
+                                <td><{$key+1}></td>
+                                <td style="text-align: left"><a title="点击即可下载备份文件！" href="?Action=dow&file=<{$row}>"><{$row}></a></td>
+                                <td><{$row|getfiletime=$datadir}></td>
+                                <td><{$row|get_filesize=$datadir}></td>
+                                <td>
+                                    <a title="点击即可下载备份文件！" href="?Action=dow&file=<{$row}>">下载</a>&nbsp;&nbsp;
+                                    <a title="将数据库内容还原为选定备份文件中的内容！" onclick="restore('<{$row}>')" href="#">还原</a>&nbsp;&nbsp;
+                                    <a title="删除选定备份文件！" onclick="delsql('<{$row}>')" href="#">删除</a>
+                                </td>
+                            </tr>
+                          </foreach>
+                          <else/>
+                          <tr>
+                            <td colspan="7">没有找到相关数据。</td>
+                          </tr>
+
+                          </notempty>
+                          </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 全局js -->
+    <script src="__PUBLIC__/H4/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/H4/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/H4/js/jquery.form.js"></script>
+    <script type="text/javascript">
+      function backone () {
+        layer.confirm('您确定需要备份数据库吗？数据库将备份至网站根目录下的 Databack 目录中。所耗费时间根据数据库大小有所差异，请耐心等待！', {icon: 3, title:'备份确认'}, function(index){
+            $(this).ajaxSubmit({
+              type:"get",
+              url:"__URL__/index/Action/backup",
+              dataType: "json",
+              success: function(result){
+                var getStatu=result.status;
+                if (getStatu==0) 
+                  {
+                    layer.msg(result.info,{icon:2});
+                  }
+                  else
+                  {
+                    var getData=result.data;
+                    layer.msg(result.info, {icon:1,time:300},function(){
+                      location.href=getData;
+                    }); 
+                  };
+               }
+            });            
+        }); 
+    }
+
+    function restore($filename) { //提交还原数据请求
+      layer.confirm('您确定需要还原全部数据表吗？<br />还原后当前全部数据表所有的数据都将被恢复，请慎重操作！', {icon: 3, title:'还原确认'}, function(index){
+          $(this).ajaxSubmit({
+            type:"get",
+            url:"__URL__/index/Action/backup?Action=RL&File="+$filename,
+            dataType: "json",
+            success: function(result){
+              var getStatu=result.status;
+              if (getStatu==0) 
+                {
+                  layer.msg(result.info,{icon:2});
+                }
+                else
+                {
+                  var getData=result.data;
+                  layer.msg(result.info, {icon:1,time:300},function(){
+                    location.href=getData;
+                  }); 
+                };
+             }
+          });            
+      });        
+    }
+
+      function download_file($filename) { //提交备份文件下载请求
+        layer.confirm('确定需要将备份文件下载至本地吗？', {icon: 3, title:'下载确认'}, function(index){
+            $(this).ajaxSubmit({
+              type:"get",
+              url:"__URL__/index/Action/backup?Action=RL&File="+$filename,
+              dataType: "json",
+              success: function(result){
+                $url="<{:U('Database/download','','',0)}>";
+                window.location.href=$url+"?name="+$filename;
+               }
+            });            
+        });
+      }
+
+      function delsql ($filename) { //提交单个文件删除请求
+        layer.confirm('您确定需要删除这个备份文件吗？', {icon: 3, title:'删除确认'}, function(index){
+            $(this).ajaxSubmit({
+              type:"get",
+              url:"__URL__/index/Action/backup?Action=Del&File="+$filename,
+              dataType: "json",
+              success: function(result){
+                var getStatu=result.status;
+                if (getStatu==0) 
+                  {
+                    layer.msg(result.info,{icon:2});
+                  }
+                  else
+                  {
+                    var getData=result.data;
+                    layer.msg(result.info, {icon:1,time:300},function(){
+                      location.href=getData;
+                    }); 
+                  };
+               }
+            });            
+        });        
+      }
+
+    </script>
+
+</body>
+
+</html>  

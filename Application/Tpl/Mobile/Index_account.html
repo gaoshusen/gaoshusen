@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/style.css">
+</head>
+<body>
+	<div class="iPop_mask"></div>
+	<div class="iPop_balance">
+		<p class="tit">
+			<span class="tt">请输入密码：</span>
+			<span class="close"><img src="__PUBLIC__/phone/image/close-1.png" alt=""></span>
+		</p>
+		<div class="tim">			
+			<p class="left"></p>
+			<p><input type="password" class="pass" /></p>
+			<br>	
+		</div>
+		<div class="tib"><a href="javascript:;" class="sub">确认</a></div>
+	</div>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="javascript:history.back(-1);">&lt;&nbsp;返回</a>
+		<h1>我的账户</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="balance nameHead" >
+			<section class="sect01">
+				<p>
+					<span class="name" id="usrName"></span>
+					<span class="grade"><img id="lvImg" src="" alt=""></span>
+				</p>
+			</section>
+			
+			<section class="sect02">
+				<div class="tit">你现在拥有现金余额为</div>
+				<div class="num">
+					<img src="__PUBLIC__/phone/image/personal_account-2.png" alt="">
+					<span><i id="mnyNum"></i>元</span>
+				</div>
+				<div class="search">
+					<div class="inp">
+						<input type="text" id="mny" placeholder="提现的金额必须为10的倍数">
+						<a class="sub">提现</a>
+					</div>
+				</div>
+				<p class="msg">您只能提10的倍数的现金</p>
+			</section>
+
+			
+		</section>
+
+	</article>
+
+	
+<script src="__PUBLIC__/phone/script/api.js"></script>
+<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+<script src="__PUBLIC__/phone/script/system.js"></script>
+<script type="text/javascript">
+	$(function(){
+ 		$('#usrName').html(localStorage.mname);
+		$('#lvImg').attr("src","__PUBLIC__/phone/image/"+localStorage.lvimg);
+		getAccount();
+ 	});
+
+ 	function getAccount () {		//加载账户信息
+ 		// showLoading('数据加载中...');
+ 		var url = ApiUrl + 'User/getmembermny';
+ 		$.ajax({
+ 			url : url,
+ 			data : {			
+ 				mid:{$memberID},
+ 			},
+ 			dataType : 'json', //服务器返回json格式数据
+ 			type : 'post', //
+ 			success : function(data) {
+ 				if(data.status!=false){
+ 					$('#mnyNum').html(data.mnyNum);
+ 					// closeLoading();						
+ 				}else{
+ 					msg_t(data.info);
+					$(".iPop_balance .tim p input").val('');
+ 					// closeLoading();
+ 				}
+
+ 			},
+ 		})	
+ 	}
+
+ 	function getMny (passowrd) {		//申请提现
+ 		var mnyNum	=	$("#mny").val();
+ 		var mnyTotal	=	$('#mnyNum').html();
+ 		if (parseFloat(mnyNum) > parseFloat(mnyTotal)) {
+ 			msg_t("您的余额不足"+mnyTotal);
+ 			return false;
+ 		};
+ 		if (parseFloat(mnyNum)%10!=0) {
+ 			msg_t("提现的金额须为10的倍数");
+ 			return false;
+ 		};
+ 		
+ 		// showLoading('申请提交中...');
+ 		var url = ApiUrl + 'User/ineedmny';
+ 		$.ajax({
+ 			url : url,
+ 			data : {			
+ 				mid:{$memberID},
+ 				mny:mnyNum,
+ 				paypass:passowrd
+ 			},
+ 			dataType : 'json', //服务器返回json格式数据
+ 			type : 'post',	
+ 			success : function(data) {
+ 				// api.alert({msg:data});
+ 				if(data.status!=false){
+ 					msg_t(data.info);
+ 					$('#mnyNum').html(data.mnyNow);
+ 					// closeLoading();						
+ 				}else{
+ 					msg_t(data.info);
+ 					// closeLoading();
+ 					if (data.go==1) {
+ 						goWeb('{:U("changesafe")}');
+ 					};
+ 				}
+
+ 			},
+ 		})	
+ 	}
+
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+</script>
+<script>	
+	$(function(){
+		
+		//弹窗弹窗；
+		$(".balance .sect02 .search .sub").click(function(){
+			var mnyNum	=	$("#mny").val();
+	 		var mnyTotal	=	$('#mnyNum').html();
+	 		if (parseFloat(mnyNum) > parseFloat(mnyTotal)) {
+	 			msg_t("您的余额不足"+mnyTotal);
+	 			return false;
+	 		};
+	 		if (parseFloat(mnyNum)%10!=0) {
+	 			msg_t("提现的金额须为10的倍数");
+	 			return false;
+	 		};
+			$(".iPop_mask").show();
+			$(".iPop_balance").show();			
+				
+			return false;		
+		});
+
+		//关闭弹窗；
+		$(".iPop_balance .tit .close").click(function(){
+
+			
+
+			$(".iPop_balance").hide();
+			$(".iPop_mask").hide();
+			toPass_fn(null);
+		});
+		$(".iPop_balance .tib .sub").click(function(){
+			
+			
+			
+
+			$(".iPop_balance").hide();
+			$(".iPop_mask").hide();
+			toPass_fn($(".iPop_balance .tim p input").val());
+		});
+
+		function toPass_fn(iPass){
+			if (iPass==null || iPass=='') {
+				msg_t('请输入安全密码！');
+				$(".iPop_balance .tim p input").val('');
+				return false;
+			};
+			getMny(iPass);
+		}
+
+	});
+</script>
+</body>
+</html>

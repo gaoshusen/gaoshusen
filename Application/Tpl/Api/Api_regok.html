@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册结果</title>
+	<style>
+*{margin:0;padding:0;}
+body{fon-size:12px;font-family: 'Arial','微软雅黑';}
+.wrapper{max-width:480px;margin:0 auto;}
+.signInSuccess{padding:0 15px;}
+.signInSuccess h1{padding:30px 0;line-height:50px;font-size: 26px;color: #ff0303;text-align: center;}
+.signInSuccess p.det{line-height: 40px;}
+.signInSuccess p.det label{display:inline-block; width:100px;text-align: right;font-size: 16px;color: #666;}
+.signInSuccess p.det span{font-size: 14px;color: #333;}
+.signInSuccess p.msg{text-indent:2em;line-height: 30px;font-size: 14px;color: #999;}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+
+		<div class="signInSuccess">
+			<h1><{$info}></h1>
+			<p class="det">
+				<label for="">用户编号：</label>
+				<span>{$mid}</span>
+			</p>
+			<p class="det">
+				<label for="">默认密码：</label>
+				<span>{$defautPwd}</span>
+			</p>
+			<p class="msg">您可以使用微信、QQ、APP自动登录！</p>
+		</div>
+		
+	</div>
+</body>
+</html>

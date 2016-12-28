@@ -1,0 +1,385 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title>全民私包</title>
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/swiper.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/style.css">
+
+<style>
+	.swiperWrapper{    
+		z-index: 2;
+	    position: fixed;
+	    left: 0;
+	    top:0;width:100%;height:100%;
+	}
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {position: relative;
+        text-align: center;       
+        
+        /* Center slide text vertically */
+            
+        
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    /* new add */
+	.iModal_adv2{display:none;z-index:2018;}
+
+</style>
+</head>
+<body>
+
+	<div class="iPop_mask"></div>
+
+	<section class="iModal_adv iModal_adv2">
+		<div class="adBg"><span></span><img src="__PUBLIC__/phone/image/index_adv0.jpg" alt="" /></div>
+		<div class="runtime">倒计时<span id="time_left">10</span>S后打开</div>
+	</section>
+
+	<!-- header -->
+	<header class="iHeader">
+		<h1>全民私包</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<div class="iArticle_bg"></div>
+		
+		<div class="swiperWrapper">
+	        <!-- Swiper -->
+	        <div class="swiper-container">
+	            <div class="swiper-wrapper" id="packet_list">
+	            </div>
+	           
+	        </div>
+	    </div>
+		
+
+
+	</article>
+
+	<!-- footer -->
+	<footer class="iFooter">
+		<ul class="iFooterList">
+			<li>
+				<a>
+					<img src="__PUBLIC__/phone/image/wallet-2.png" alt="">
+					<br>
+					<span>全民私包</span>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo U('Index/newsList');?>">
+					<img src="__PUBLIC__/phone/image/news-1.png" alt="">
+					<br>
+					<span>新闻资讯</span>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo U('Index/ucenter');?>">
+					<img src="__PUBLIC__/phone/image/personal-1.png" alt="">
+					<br>
+					<span>个人中心</span>
+				</a>
+			</li>
+		</ul>
+	</footer>
+
+<!-- js start -->
+<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+<script src="__PUBLIC__/phone/script/system.js"></script>
+<script src="__PUBLIC__/phone/script/layer/layer.js"></script>
+
+<script>
+var ad_time	=	5;
+//滑动到的最大索引；（当索引的当前值大于该值时，滑动才能继续加载数据）
+maxNum=0;
+getPacket(0);		//取得初始红包
+
+setTimeout(function(){
+	getPacket(1);		//取得初始红包
+	getPacket(2);		//取得初始红包		        
+},400); 
+maxNum = -1;
+	
+<!-- 动态布局红包 -->
+function index_resizeFn(){
+	var iWindowWidth = $(window).width();
+	var iWindowHeight = $(window).height();
+
+	$(".swiperWrapper").css({
+		
+	});
+	$(".iModal_wallet").css({
+		"height": iWindowWidth*0.8/592*676+"px",
+		"marginLeft": -iWindowWidth*0.4+"px",
+		"top": iWindowHeight/2-iWindowWidth*0.4/592*676 -20+"px"
+	});
+
+	$(".iLogo").css({
+		"paddingTop":iWindowWidth*0.8/592*323-45+"px"
+	});
+
+	//广告窗口定位；
+	$(".iModal_adv").css({
+		"height": iWindowWidth*0.8/623*885+"px",
+		"marginLeft": -iWindowWidth*0.4+"px",	
+		"top": "50%",
+		"marginTop": -iWindowWidth*0.8/623*885/2-23+"px"		
+	});	
+}
+
+index_resizeFn();
+
+var iTimer = null;
+$(window).resize(function(){
+	clearTimeout(iTimer);
+	iTimer = setTimeout(function(){
+		index_resizeFn();
+	},100);			
+});
+
+
+<!-- Initialize Swiper -->
+
+var sNow = true;		//位置：是[否]在起始位置；
+var idisY0 = 0;	
+var idisY1 = 1;	
+var onoff = true; //开关；
+
+$(document).on('mousedown',function(ev){
+	idisY0 = ev.clientY;
+	$(document).on('mouseup',function(ev){
+		idisY1 = ev.clientY;		
+	});
+});
+
+var swiper = new Swiper('.swiper-container', {    
+    direction: 'vertical',  
+	
+    onTouchStart: function(swiper,even){
+    	
+     // idisY0 = even.clientY;
+    },
+    onTouchEnd: function(swiper,even){
+    	
+     // idisY1 = even.clientY;
+    },
+
+    onSlidePrevEnd: function(swiper){    	
+      swiperFn_slidePrevEnd();
+    },
+    onSlideNextEnd: function(swiper){   
+      sNow = false; 	
+	  swiperFn_slideNextEnd();      
+    },
+    
+    onTransitionEnd: function(swiper){
+      swiperFn_transitionEnd();
+    },
+
+    onClick: function(swiper){
+		if(onoff){
+			//swiper.lockSwipeToNext();
+			onoff = false;
+		}else{
+			//swiper.unlockSwipeToNext();
+			onoff = true;
+		}
+		
+      swiperFn_click();
+    }
+    
+
+});
+
+//返回当前的索引；
+ //alert(swiper.activeIndex); 
+
+	
+//函数：控制sNow;
+function swiperFn_slidePrevEnd(){
+	if(swiper.isBeginning){sNow = true;}
+}
+
+//函数：最顶端往上滑 刷新数据;
+function reloadFn(){
+	if(idisY1-idisY0>0){
+		if(swiper.isBeginning && sNow){
+			showLoading('刷新中...');
+			$('#packet_list').html('');
+			maxNum=0;
+			showLoading('正在加载...');		//显示加载动画
+		 	getPacket(0);		//取得初始红包
+		 	setTimeout(function(){
+				getPacket(1);		//取得初始红包
+				getPacket(2);		//取得初始红包		        
+		    },400);
+			maxNum = -1;
+			//在此调用刷新；
+		}
+	}
+	
+}
+
+
+//函数：滑动红包之后；
+function swiperFn_transitionEnd(){	
+	reloadFn();
+}
+
+function swiperFn_slideNextEnd(){
+	
+	
+	if(swiper.activeIndex>maxNum){
+		// showLoading('正在加载...');		//显示加载动画packet_list
+		getPacket(swiper.activeIndex+2);		//取得后续红包	
+		maxNum ++;
+	}
+	
+}
+
+//函数：倒计时；
+function countFn(n,pid,tp){
+	var timeout = n;
+	var timer = null;
+	clearInterval(timer);
+	timer = setInterval(function(){
+		timeout--;
+		if(timeout <= 0){
+			acceptPacket(pid,tp);		//执行抢红包动作
+			clearInterval(timer);
+			$(".iPop_mask").hide();
+			$(".iModal_adv2").hide();
+			$("#time_left").html(ad_time);	
+			return false;
+		}
+		$("#time_left").html(timeout);
+		
+	},1000);
+	
+	// $(".iModal_adv2").click(function(){
+	// 	clearInterval(timer);
+	// 	location.href="";
+	// });
+	
+}
+//函数：点击当前红包；
+function swiperFn_click(){
+	if(!$("#packet_list .swiper-slide").length>0){return false;};	//阻止没有红包时点击弹出窗	
+	//广告弹窗显示；
+	var url = $("#packet_list .swiper-slide").eq(swiper.activeIndex).data("ad");
+	var pid = $("#packet_list .swiper-slide").eq(swiper.activeIndex).data("pid");
+	var tp = $("#packet_list .swiper-slide").eq(swiper.activeIndex).data("types");
+	$(".iModal_adv2 .adBg img").attr("src", url );
+	$(".iPop_mask").show();
+	$(".iModal_adv2").show();	
+	
+	//倒计时函数调用；
+	countFn(ad_time,pid,tp);
+	return false;
+
+	//返回当前的索引；
+	//goWeb('packetad');
+	// alert('打开红包');
+	//alert(swiper.activeIndex); 
+}
+
+//函数：动态加载数据；
+function getPacket (startID) {
+	var mid = '<?php echo ($memberID); ?>';
+	// mid=5;		//调试数据，完成后请删除或注释
+	var url = ApiUrl + 'Packet/getpacket';
+	$.ajax({
+		url : url,
+		data : {			
+			minid:startID,			
+			mid:mid,
+		},
+		dataType : 'json', //服务器返回json格式数据
+		type : 'get', //
+		success : function(data) {
+			// api.alert({msg:data});
+			if(data.status){
+				ad_time	=	data.adv_time;
+				if(data.types=="packet"){
+					var total =	"升级券:"+data.papernum+"张";
+				}else{
+					var total = "RMB:"+data.money+"元";
+				}
+				
+				if (data.isGet=="1") {
+					var tks	=	"红包已开";
+					var redBg	=	"__PUBLIC__/phone/image/wallet-open.png";
+				}else{
+					if(data.smark==""){
+						var tks	=	"感谢"+data.title+"赞助的私包";
+					}else{
+						var tks 	=	data.smark;
+					}
+					var redBg	=	"__PUBLIC__/phone/image/wallet-0.png";
+				};
+				// alert(redBg);
+				var pacHtml	=	'<div class="swiper-slide" data-ad="'+data.ad_pic+'" data-pid="'+data.ID+'" data-types="'+data.types+'">';
+				pacHtml		+=      '<section class="iModal_wallet" style="background: url('+redBg+') no-repeat center;background-size: cover;">';
+				pacHtml		+=			'<div class="iLogo"><span><i style=" background:url('+data.logo+') no-repeat center;background-size: cover;"></i></span></div>';
+				pacHtml		+=			'<h3 class="iName">'+data.title+'</h3>';
+				pacHtml		+=			'<p class="iRmb">'+total+'</p>';
+				pacHtml		+=			'<p class="iMsg">'+tks+'</p>';
+				pacHtml		+=		'</section>';
+				pacHtml		+=	'</div>';			
+				
+				$('#packet_list').append(pacHtml);
+				index_resizeFn();
+				swiper.updateSlidesSize();
+				closeLoading();
+			}
+		}
+	})
+}	
+
+function acceptPacket (pid,tp) {
+	var url = '<?php echo U("Index/acceptpacket");?>';
+	showLoading();
+	$.ajax({
+		url : url,
+		data : {				
+			pid:pid,				//红包ID
+			types:tp,				//红包类型
+		},
+		dataType : 'json', //服务器返回json格式数据
+		type : 'get', //
+		success : function(data) {		//不论是否抢到红包，都打开红包详情
+			if (data.status==-1) {
+				location.href=data.url;
+			}else{
+				layer.msg(data.info);
+				location.href=data.url;
+				// api.toast({msg: data.info,duration: 1000,location: 'middle'});
+			};
+			// showLoading();
+			closeLoading();
+		}
+	})
+}
+</script>
+
+<!-- js end -->
+</body>
+</html>

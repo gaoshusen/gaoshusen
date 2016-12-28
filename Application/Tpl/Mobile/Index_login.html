@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/phone/css/reset.css">
+	    <link rel="stylesheet" href="__PUBLIC__/phone/css/style2.css">
+		<script type="text/javascript" src="__PUBLIC__/phone/script/index.js"></script>
+</head>
+	<body id="logIn">
+		<header class="header">
+			<div class="headerTop">
+				<div class="back">
+					<span></span>
+				</div>
+				<h3 class="logo">
+					登录
+				</h3>
+			</div>
+		</header>
+		<section class="content">
+			<div class="contentLogin">
+				<a href="javascript:;">
+					<img src="__PUBLIC__/phone/image/loninsi.png"/>
+				</a>
+			</div>
+			<form action="" method="post" class="form">
+				<input id="phone" type="text" placeholder="用户名" class="use"/>
+				<input id="pwd" type="password" placeholder="密码" class="password"/>
+				<!-- <p class="resetPassword">
+					<a href="javascript:;">忘记密码?</a>
+				</p> -->
+			</form>
+			<p class="submit" onclick="login()"></p>
+		</section>
+
+<script src="__PUBLIC__/phone/script/api.js"></script>
+<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+<script src="__PUBLIC__/phone/script/system.js"></script>	
+<script type="text/javascript">
+	var pid='';
+	var go='';
+	var types='';
+	// apiready = function(){
+ //      	pid= api.pageParam.pid;
+ //      	go= api.pageParam.go;
+ //      	types= api.pageParam.types;
+	// }
+
+	function login () {
+		
+		var phone	=	$('#phone').val();
+		var pwd	=	$('#pwd').val();
+		if (phone=="" || pwd=="") {
+			alert("请输入完整的手机号和密码进行登录！");
+			// api.alert({msg:"请输入完整的手机号和密码进行登录！"});
+			return false; 
+		};
+		if(!(/^1[34578]\d{9}$/.test(phone))){
+			alert("请输入正确的手机号码!");
+			return false; 
+		}
+		if (pwd.length<6) {
+			alert("密码长度不足，请重新输入!");
+			return false; 
+		};
+		// showLoading('登录中...');
+		var url = '{:U("login")}';
+		// var deviceId = api.deviceId;	//取设备惟一标识符
+		$.ajax({
+			url : url,
+			data : {			
+				phone:phone,
+				password:pwd
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			success : function(data) {
+				if(data.status!=false){
+					goWeb(data.goUrl);
+				}else{
+					alert(data.info);
+				}
+
+			},
+		})
+	}
+
+	// function wexLogin () {			//暂时中止，等待客户的微信公众服务号
+	// 	showLoading('登录中...');
+	// 	var wx = api.require('wx');
+	// 	wx.auth({
+	// 	    apiKey: ''
+	// 	}, function(ret, err){ 
+	// 	    if(ret.status){
+	// 	    	var getToken	=	ret.code;
+	// 	    	wx.getToken({
+	// 			    apiKey: '',
+	// 			    apiSecret: '',
+	// 			    code: getToken
+	// 			},function(ret, err){ 
+	// 			    if(ret.status){
+	// 			        var accessToken	=	ret.accessToken;
+	// 			        var openId	=	ret.openId;
+	// 			        var wx = api.require('wx');
+	// 					wx.getUserInfo({
+	// 					    accessToken: accessToken,
+	// 					    openId: openId
+	// 					}, function(ret,err){ 
+	// 					    if(ret.status){
+	// 					    	var wxid = ret.openid;
+	// 					    	var mname = ret.nickname;
+	// 					    	var headimgurl = ret.headimgurl;
+	// 					    	var wxid_app = ret.unionid;
+	// 					        alert(JSON.stringify(ret));
+
+	// 					        var url = ApiUrl + 'User/addtemp';
+	// 					        var deviceId = api.deviceId;	//取设备惟一标识符
+	// 					        $.ajax({
+	// 					        	url : url,
+	// 					        	data : {			
+	// 					        		wxid:wxid,
+	// 					        		mname:mname,
+	// 					        		headimgurl:headimgurl,
+	// 					        		wxid_app:wxid_app,
+	// 					        		deviceid:deviceId
+	// 					        	},
+	// 					        	dataType : 'json', //服务器返回json格式数据
+	// 					        	type : 'post', //
+	// 					        	async: false,
+	// 					        	success : function(data) {
+	// 					        		api.alert({msg:data});
+	// 					        		if(data.status!=false){
+	// 					        			// localStorage.memberID=data.mid;
+	// 					        			// localStorage.msign=data.msign;
+	// 					        			// localStorage.mobile=data.mobile;
+	// 					        			// localStorage.addtime=data.addtime;
+	// 					        			// localStorage.qrsrc=data.qrsrc;
+	// 					        			// localStorage.wxid=data.wxid;
+	// 					        			// localStorage.wxid_app=data.wxid_app;
+	// 					        			// localStorage.qqid=data.qqid;
+	// 					        			// localStorage.qqid_app=data.qqid_app;
+	// 					        			// localStorage.pid=data.pid;
+	// 					        			// localStorage.qqaccout=data.qqaccout;
+	// 					        			// localStorage.weixinaccout=data.weixinaccout;
+	// 					        			// closeLoading();
+	// 					        			// pushBinding();		//绑定推送用户
+	// 					        			// api.openWin({
+	// 					        			//     name: go,
+	// 					        			//     url: './'+go+'.html',
+	// 					        			//     pageParam: {
+	// 					        			//         mid:data.mid,			//会员ID	
+	// 					        			// 		pid:pid,				//红包ID
+	// 					        			// 		types:types,			//红包类型
+	// 					        		 //    	}
+	// 					        			// });
+	// 					        			closeMe();
+	// 					        		}else{
+	// 					        			alert(data.info);
+	// 					        			closeLoading();
+	// 					        		}
+
+	// 					        	},
+	// 					        })
+	// 					    }else{
+	// 					        alert('取用户信息失败！');
+	// 					    }
+	// 					});
+	// 			    }else{
+	// 			        alert('取accessToken失败！');
+	// 			    }
+	// 			});
+	// 	    }else{
+	// 	        alert('调用微信登录接口失败！');
+	// 	    }
+	// 	});
+
+	// }
+
+	// function goBack () {
+	// 	goIndex();
+	// 	api.closeToWin({
+	// 	    name: 'index'
+	// 	});
+	// }
+</script>
+</body>
+</html>

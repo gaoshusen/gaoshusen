@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - 选择图标</title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="ibox-content">
+<volist name="iconList" id="C">
+    <a class="btn btn-white btn-bitbucket" onclick="clickMe('<{$C.icons}>')" title="<{$C.icons}>"><i class="fa fa-2x <{$C.icons}> bigger-110" style="width:35px;"></i></a>&nbsp;
+</volist>
+</div>
+<script type="text/javascript">
+
+            function clickMe (icon) {
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.$('#menuIco').val(icon); 
+                parent.layer.close(index);
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+[ 2016-12-23T15:29:12+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+
+[ 2016-12-23T15:31:29+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+
+[ 2016-12-23T15:32:42+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+
+[ 2016-12-23T15:40:51+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index:  D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 45 行.
+
+[ 2016-12-23T15:41:16+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index:  D:\wenxin\Application\Lib\Action\Admin\TotalAction.class.php 第 45 行.
+
+[ 2016-12-23T15:41:32+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+ERR: Action:getTimeWeek您所请求的方法不存在！
+
+[ 2016-12-23T15:41:45+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.001000s ]
+
+[ 2016-12-23T15:43:22+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.000000s ]
+
+[ 2016-12-23T15:43:23+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bill` [ RunTime:0.005001s ]
+SQL: SELECT * FROM `t_bill` WHERE ( fromID = 504 OR toID = 504 and billtp = 'mny' and type in(0,1,2,3,4,5,10) ) ORDER BY id desc  [ RunTime:0.002000s ]
+
+[ 2016-12-23T16:55:32+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:24+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:46+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.003000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:47+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003001s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.004000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:48+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.005000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:49+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.002000s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:01:50+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_bank` [ RunTime:0.003001s ]
+SQL: INSERT INTO `t_bank` (`fanhui`,`name`) VALUES ('GSS','高树森') [ RunTime:0.000000s ]
+
+[ 2016-12-23T17:08:53+08:00 ] 127.0.0.1 /index.php/admin/Total/ceshi
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001001s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `t_menu` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `t_menu` WHERE ( module_name='Total' and action_name='ceshi' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `is_public` FROM `t_menu` WHERE ( id=0 ) LIMIT 1   [ RunTime:0.000000s ]
+

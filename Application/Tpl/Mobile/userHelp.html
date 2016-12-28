@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title>用户帮助</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg_f5f5f5">
+	
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>用户帮助</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="userHelp" >
+			<ul id="help_list">
+			</ul>
+		</section>
+
+	</article>
+
+	<script src="../script/api.js"></script>
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script src="../script/swiper.min.js"></script>
+	<script src="../script/system.js"></script>
+	<script type="text/javascript">
+		apiready = function(){
+			getWebList();
+			api.addEventListener({			//拦截手机的返回按键动作
+		        name : 'keyback'
+			}, function(ret, err) {
+				goBack();
+			});
+		}
+		function getWebList () {
+			showLoading('数据加载中...');
+			var url = ApiUrl + 'User/getweblist';
+			$.ajax({
+				url : url,
+				data : {			
+					tp:1,
+				},
+				dataType : 'json', //服务器返回json格式数据
+				type : 'post', //
+				success : function(data) {
+					// api.alert({msg:data});
+					if(data.status!=false){
+						var weblist =	data.help;
+						var webHtml	=	'';
+						for (var i = weblist.length - 1; i >= 0; i--) {
+							var help = weblist[i];
+							webHtml	+=	'<li onclick="goWebDetail('+help.id+');">'
+									+		'<h3 class="tit">'+help.title+'</h3>'
+									+		'<p class="des">'+help.des+'</p>'
+									+	'</li>';
+						};
+						$('#help_list').html(webHtml);
+						closeLoading();	
+					}else{
+						api.alert({msg:data.info});
+						closeLoading();
+					}
+				},
+			})	
+		}
+
+		function goWebDetail (wid) {
+			api.openWin({
+			    name: 'webDetail',
+			    url: './webDetail.html',
+			    bounces: false,
+				slidBackEnabled:false,
+				animation:{type:"none"},
+			    pageParam: {
+			        wid:wid,			//会员ID
+			        from:'help'
+			    }
+			});	
+		}
+		function goBack () {
+			goWeb('aboutus');
+			api.closeToWin({
+			    name: 'aboutus'
+			});
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - <{$windowTitle}></title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/fm.tagator.jquery.css" rel="stylesheet"/>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><{$windowTitle}></h5>
+                        <div class="ibox-tools">
+                            <a title="刷新当前页面" href="javascript:location.replace(location.href);">
+                                <i class="fa fa-refresh"></i>
+                            </a> 
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="addmodelForm" method="post">
+                            <input type="hidden" name="method" value="<{$method}>">
+                            <input type="hidden" name="id" value="<{$fieldInfo['id']}>">
+                            <input type="hidden" name="model_id" value="<{$model_id}>">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">字段标题：</label>
+                                <div class="col-sm-8">
+                                    <input name="field_title" value="<{$fieldInfo['field_title']}>" class="form-control"  type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的字段标题，如：标题">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">字段名称：</label>
+                                <div class="col-sm-8">
+                                    <input name="field_name" value="<{$fieldInfo['field_name']}>" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请输入欲新增的字段名称,需为英文，如：title"><i class="fa fa-info-circle"></i> 字段名称在同一个模型下必须唯一。
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">所属模型：</label>
+                                <div class="col-sm-8">
+                                    <input name="model_name" value="<{$model_name}>" readonly class="form-control" type="text" aria-required="true" aria-invalid="false" >
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label">字段类型：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="field_type" id="field_type">
+                                        <option value="int">int</option>
+                                        <option value="varchar">varchar</option>
+                                        <option value="decimal">decimal</option>
+                                        <option value="text">text</option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组件形式：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="show_type" id="show_type">
+                                        <option value="sys">隐藏域</option>
+                                        <option value="input">文本框</option>
+                                        <option value="textarea">多行文本框</option>
+                                        <option value="html">html编辑器</option>
+                                        <option value="img">上传图片(单图)</option>
+                                        <option value="images">上传图片(多图)</option>
+                                        <option value="file">上传附件</option>
+                                        <option value="select">下拉框</option>
+                                        <option value="radio">单选框</option>
+                                        <option value="checkbox">复选框</option>
+                                        <option value="key">标签输入框</option>
+                                        <option value="laydate">时间选择器</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="show_value" class="form-group" style="display:none;">
+                                <label class="col-sm-3 control-label">组件选项内容：</label>
+                                <div class="col-sm-8">
+                                    <textarea name="show_value" class="form-control" aria-required="true" placeholder="以 '0|启用' 格式设置选项的键值对，每行一个。"><{$fieldInfo['show_value']}></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">默认值：</label>
+                                <div class="col-sm-8">
+                                    <input name="field_value" value="<{$fieldInfo['field_value']}>" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="默认值为数据库的默认值。">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">字段长度：</label>
+                                <div class="col-sm-8">
+                                    <input name="field_length" value="<{$fieldInfo['field_length']}>" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请设置字段的最大长度">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">提示信息：</label>
+                                <div class="col-sm-8">
+                                    <input name="field_tip" value="<{$fieldInfo['field_tip']}>" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid" placeholder="请设置字段的提示信息！"><i class="fa fa-info-circle"></i> 提示信息将在内容发表页中出现，帮助更用户填写表单。
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">是否启用</label>
+                                <div class="col-sm-8">
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="1" name="status" <eq name="fieldInfo.status" value="1">checked="checked" </eq>> <i></i>是</label>
+                                        
+                                        <label>
+                                            <input type="radio" value="0" name="status" <eq name="fieldInfo.status" value="0">checked="checked" </eq>> <i></i>否</label>
+                                        </div>
+                                </div>
+                            </div>
+                           
+                            
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" onclick="postForm();"  type="button">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 全局js -->
+    <script src="__PUBLIC__/H4/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/H4/js/bootstrap.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__PUBLIC__/H4/js/content.min.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="__PUBLIC__/H4/js/jquery.form.js"></script>    
+    <script src="__PUBLIC__/H4/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/H4/js/fm.tagator.jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            $('#show_type').change(function(){ 
+                var type = $('#show_type').val();
+                var arr = ['checkbox','select','radio'];
+                if ($.inArray(type,arr)!=-1) {
+                    $('#show_value').css('display','block');
+                }else{
+                    $('#show_value').css('display','none'); 
+                };
+            });
+
+        });
+        
+
+        function postForm() {      //提交表单数据
+            $("#addmodelForm").ajaxSubmit({
+                 type: "post",
+                 url: "<{:U('fieldsExcut')}>",
+                 dataType: "json",
+                 success: function(result){
+                    var getStatu=result.status;
+                    if (getStatu==0) 
+                      {
+                        layer.msg(result.info, {icon:2});
+                      }
+                      else
+                      {
+                        var getData=result.data;
+                        layer.msg(result.info, {icon:1,time:300},function(){
+                            <eq name="isFull" value="1" >
+                            location.replace(location.href);
+                            <else />
+                               parent.location.href=getData;
+                            </eq>
+                        });
+                      };
+                 }
+             });
+            };
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/style.css">
+</head>
+<body class="bg_f5f5f5">
+	
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>关于我们</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="systemset" >
+			<ul id="about_list">
+			</ul>
+		</section>
+
+	</article>
+
+	
+	<script src="__PUBLIC__/phone/script/api.js"></script>
+	<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+	<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+	<script src="__PUBLIC__/phone/script/system.js"></script>
+<script type="text/javascript">
+
+	$(function () {	
+		getWebList();		//获得列表
+	});
+
+	function getWebList () {
+		var helplist	=	'<li><a href="" onclick="goHelp();">用户帮助</a></li>';
+		var version	=	'<li><a onclick="goVer();">关于</a></li>'
+		// showLoading('数据加载中...');
+		var url = ApiUrl + 'User/getweblist';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:localStorage.memberID,
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			success : function(data) {
+				// api.alert({msg:data});
+				if(data.status!=false){
+					var weblist =	data.web;
+					var webHtml	=	'';
+					for (var i = weblist.length - 1; i >= 0; i--) {
+						webHtml	+=	'<li><a onclick="goWebDetail('+weblist[i]['id']+');">'+weblist[i]['title']+'</a></li>'						
+					};
+					$('#about_list').html(webHtml+helplist+version);
+					closeLoading();						
+				}else{
+					api.alert({msg:data.info});
+					closeLoading();
+				}
+			},
+		})	
+	}
+
+	function goHelp () {
+		goWeb('userHelp');
+	}
+
+	function goVer () {
+		goWeb("userAbout");
+	}
+
+	function goWebDetail (wid) {
+		api.openWin({
+		    name: 'webDetail',
+		    url: './webDetail.html',
+		    bounces: false,
+			slidBackEnabled:false,
+			animation:{type:"none"},
+		    pageParam: {
+		        wid:wid,			//会员ID	
+		    }
+		});	
+	}
+
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+</script>
+</body>
+</html>

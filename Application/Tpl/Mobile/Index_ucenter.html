@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title>用户中心</title>
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/style.css">
+<style>
+.iHeader .profile {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #f5f5f5;
+}
+.iCont_personal .per04 .li02{position: relative;}
+.iCont_personal .per04 .li02 i.num{position: absolute;left: 50%;top:10px;margin-left:15px;display: block;padding:0 8px 0 5px;line-height: 22px; border:1px solid rgba(255,0,0,0.5);color:#fff; font-size:12px;background-color: #d84e43;
+	-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;}
+</style>
+</head>
+<body>
+	<div class="iPop_mask"></div>
+	<div class="iPop_ucenter iPop_ucenter1">
+		<p class="tit">
+			<span class="tt"><img src="__PUBLIC__/phone/image/alert-1.png" alt="">签到提醒</span>
+			<span class="close"><img src="__PUBLIC__/phone/image/close-1.png" alt=""></span>
+		</p>
+		<div class="tim">
+			<h3>签到成功！</h3>
+			<p>当前签到:<span id="nowDays"></span>天，总签到:<span id="nowTotalDays"></span>天</p>
+			<p>每签到5天即可获得1张升级券.</p>
+		</div>
+		<div class="tib"><a href="javascript:;" class="sub">确认</a></div>
+	</div>
+	<div class="iPop_ucenter iPop_ucenter2">
+		<p class="tit">
+			<span class="tt"><img src="__PUBLIC__/phone/image/alert-1.png" alt="">签到提醒</span>
+			<span class="close"><img src="__PUBLIC__/phone/image/close-1.png" alt=""></span>
+		</p>
+		<div class="tim">
+			<h3>签到成功！</h3>
+			<h3>获得升级券1张</h3>
+			<p>签到满<span>5</span>天，获得<span>1</span>张升级券.</p>
+			<p>明天签到将重新开始.</p>
+		</div>
+		<div class="tib"><a href="javascript:;" class="sub">确认</a></div>
+	</div>
+	<!-- header -->
+	<header class="iHeader">
+		<h1>用户中心</h1>
+		<a onclick="goWeb('profile');" class="profile">用户资料&nbsp;&or;</a>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="iCont_personal" >
+
+			<section class="per01">
+				<div class="inner">
+					<span class="name" id="usrName" onclick="goWeb('profile');"></span>
+					<span class="grade" id="usrLv" style="background: url(__PUBLIC__/phone/image/grade-1.png) no-repeat center;background-size: cover;" onclick="goWeb('profile');"></span>					
+					<span id="futou"></span>
+					<a class="calendar"><img src="__PUBLIC__/phone/image/calendar-1.png"><i>签到</i></a>
+				</div>
+			</section>
+
+			<section class="per02">
+				<ul>
+					<li onclick="goPapers();">
+						<p class="p1">
+							<img src="__PUBLIC__/phone/image/personal_upgrade.png" alt=""><span>升级券</span>
+						</p>					
+						<p class="p2"><span id="paperNum"></span></p>
+					</li>
+					<li onclick="goAccount();">
+						<p class="p1">
+							<img src="__PUBLIC__/phone/image/personal_account.png" alt=""><span>账户余额</span>
+						</p>
+						<p class="p2"><span id="account"></span></p>
+					</li>
+					<li onclick="goTeamCount();">
+						<p class="p1">
+							<img src="__PUBLIC__/phone/image/personal_team.png" alt=""><span>团队人数</span>
+						</p>
+						<p class="p2"><span id="teams"></span></p>
+					</li>
+				</ul>
+
+			</section>
+
+			<section class="per03">
+				<p class="alert">温馨提示：温馨提示1元夺宝活动将于今晚20：00整</p>
+			</section>
+
+			<section class="per04">
+				<ul>
+					<li class="li01"><a href="{:U('upgrademe')}"><img src="__PUBLIC__/phone/image/personal-m1.png" alt=""><br><span>我要升级</span></a>
+					</li>
+					<li class="li02">
+						<a href="#" onclick="goUpgrade();"><img src="__PUBLIC__/phone/image/personal-m2.png" alt=""><br><span>升级管理</span><i class="num" id="upNum"></i></a>
+					</li>
+					<li class="li03">
+						<a href="#" onclick="goTeamers();"><img src="__PUBLIC__/phone/image/personal-m3.png" alt=""><br><span>团队管理</span></a>
+					</li>
+					<li class="li04">
+						<a href="#" onclick="goQR();"><img src="__PUBLIC__/phone/image/personal-m4.png" alt=""><br><span>我的推广</span></a>
+					</li>
+					<li class="li05">
+						<a href="#" onclick="goAbout();"><img src="__PUBLIC__/phone/image/personal-m5.png" alt=""><br><span>关于我们</span></a>
+					</li>
+					<li class="li06">
+						<a href="#" onclick="goServ();"><img src="__PUBLIC__/phone/image/personal-m6.png" alt=""><br><span>客服中心</span></a>
+					</li>
+				</ul>
+			</section>
+
+			<section class="per05">
+				<p class="adv"><img id="adImg" src="" alt=""></p>
+			</section>
+
+		</section>
+
+	</article>
+	
+	<!-- footer -->
+	<footer class="iFooter">
+		<ul class="iFooterList">
+			<li>
+				<a href="{:U('Index/index')}">
+					<img src="__PUBLIC__/phone/image/wallet-1.png" alt="">
+					<br>
+					<span>全民私包</span>
+				</a>
+			</li>
+			<li>
+				<a href="{:U('Index/newsList')}">
+					<img src="__PUBLIC__/phone/image/news-1.png" alt="">
+					<br>
+					<span>新闻资讯</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<img src="__PUBLIC__/phone/image/personal-2.png" alt="">
+					<br>
+					<span>个人中心</span>
+				</a>
+			</li>
+		</ul>
+	</footer>
+
+	<!-- js start -->
+	<script src="__PUBLIC__/phone/script/api.js"></script>
+	<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+	<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+	<script src="__PUBLIC__/phone/script/system.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			getUsrInfo();
+		});
+
+		function getUsrInfo () {
+			// showLoading('数据加载中...');
+			var url = ApiUrl + 'User/getmemberinfo';
+			$.ajax({
+				url : url,
+				data : {			
+					mid:{$memberID},
+				},
+				dataType : 'json', //服务器返回json格式数据
+				type : 'post', //
+				success : function(data) {
+					// api.alert({msg:data});
+					if(data.status!=false){
+						localStorage.level	=	data.level;
+						localStorage.lvimg	=	data.lvimg;
+						localStorage.mname	=	data.mname;
+						localStorage.arsrc	=	data.qrSrc;
+						if(data.level == 4){
+							var ft = '<a class="futou" onclick="ft();"><i>复投升级</i></a>';
+							$('#futou').html(ft);
+						}
+						$('#usrName').html(data.mname);
+						if (data.needUpNum>0) {
+							$('#upNum').html(data.needUpNum);							
+						};
+						$('#usrLv').css("backgroundImage","url(__PUBLIC__/phone/image/"+data.lvimg+")");
+						$('#adImg').attr('src',data.adimg);
+						$('#paperNum').html(data.paperNum);
+						$('#account').html(data.mnyNum);
+						$('#teams').html(data.teams);
+						closeLoading();						
+					}else{
+						alert(data.info);
+						closeLoading();
+					}
+				},
+			})	
+		}
+
+		// function goUpdateMe () {
+		// 	var paperNum 	=	$('#paperNum').html();
+		// 	api.openWin({
+		// 	    name: 'upgrademe',
+		// 	    url: './upgrademe.html',
+		// 	    bounces: false,
+		// 		slidBackEnabled:false,
+		// 		animation:{type:"none"},
+		// 	    pageParam: {
+		// 	        papernum:paperNum,			//会员ID	
+		// 	    }
+		// 	});	
+		// 	closeMe();
+		// }
+
+		// function goUpgrade () {
+		// 	var paperNum 	=	$('#paperNum').html();
+		// 	localStorage.paperNum =	paperNum;
+		// 	goWeb('upgrademng');
+		// }
+		function ft(){
+			goWeb('{:U("reg")}');
+		}
+		function goPapers () {
+			goWeb('{:U("mypapers")}');
+		}
+
+		function goAccount () {
+			goWeb('{:U("account")}');
+		}
+
+		function goTeamCount () {
+			goWeb('{:U("teamcount")}');
+		}
+
+		function goTeamers () {
+			goWeb('{:U("teammng")}');
+		}
+
+		function goQR () {
+			goWeb('{:U("myqr")}');
+		}
+
+		function goAbout () {
+			goWeb('{:U("aboutus")}');
+		}
+
+		function goServ () {
+			goWeb('{:U("service")}');
+		}
+			
+	</script>
+	<script>	
+		$(function(){
+			var onoff = false;
+
+			//弹窗弹窗；
+			$(".iCont_personal .per01 .calendar").click(function(){
+
+				// showLoading('签到中...');
+				var url = ApiUrl + 'User/signin';
+				$.ajax({
+					url : url,
+					data : {
+						mid:{$memberID},
+					},
+					dataType : 'json', //服务器返回json格式数据
+					type : 'post', //
+					success : function(data) {
+						// api.alert({msg:data});
+						if(data.status!=false){
+							closeLoading();						
+							if (data.status==1) {
+								$('#nowDays').html(data.nowDays);
+								$('#nowTotalDays').html(data.nowTotalDays);
+								onoff	=	true;
+							};
+
+							if (data.status==2) {
+								onoff	=	false;
+							};	
+
+							$(".iPop_mask").show();
+							if(onoff){
+								$(".iPop_ucenter1").show();
+							}else{
+								$(".iPop_ucenter2").show();
+								getUsrInfo();
+							}						
+						}else{
+							msg_t(data.info);
+							closeLoading();
+						}
+
+					},
+				})						
+				return false;		
+			});
+
+			//关闭弹窗；
+			$(".iPop_ucenter .tit .close").click(function(){
+				$(".iPop_ucenter").hide();
+				$(".iPop_mask").hide();
+			});
+			$(".iPop_ucenter .tib .sub").click(function(){
+				$(".iPop_ucenter .tit .close").trigger("click");
+			});
+		});
+	</script>
+</body>
+</html>

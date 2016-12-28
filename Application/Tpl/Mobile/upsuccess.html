@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>升级提示</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="ugsuccess" >
+			<section class="sect01">				
+				<!-- <span class="yes"><img src="../image/yes-1.png" alt=""></span> -->
+				<span class="msg">
+					<!-- <i>Congratulations</i><br> -->
+					<em id="msgtip"></em>
+				</span>
+			</section>
+			<section class="sect02">	
+				<p class="alter">
+					<span class="grade"><img id="lvnow" src="" alt=""></span>
+					<span class="arrow"><img src="../image/arrow-1.png" alt=""></span>
+					<span class="grade"><img id="lvto" ssrc="" alt=""></span>
+				</p>
+				<span class="msg">
+					<!-- <i>Congratulations</i><br> -->
+					<em>您本次升级需要向上级会员支付红包<span id="needMny"></span>元</em>
+				</span>
+			</section>
+			<section class="sect03">	
+				<p class="tit">您需要通过下面的方式联系上线审核会员</p>
+				<ul class="contactList">
+					<!-- <li>
+						<img src="../image/qq-2.png" alt="">
+						<span id="QQ"></span>
+						<a class="btn" onclick="copyQQ();">复制</a>
+					</li> -->
+					<li>
+						<img src="../image/weixin-2.png" alt="">
+						<span id="wex"></span>
+						<a href="" class="btn" onclick="copyWex();">复制</a>
+					</li>
+					<li>
+						<img src="../image/phone-1.png" alt="">
+						<span id="mobile"></span>
+						<a href="" class="btn" id="call">拨号</a>
+					</li>
+				</ul>
+			</section>
+			<!-- <section class="sect04">
+				<p class="btn"><a class="sub" onclick="saveToPic();">保存至相册</a></p>				
+			</section> -->
+		</section>
+
+	</article>
+
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		})
+		var result	=	api.pageParam.result;
+		// alert(result);
+		if (result!=false) {
+			$('#msgtip').html("升级申请已提交成功，请先联系上级确认！");
+		}else{
+			$('#msgtip').html("抱歉，您上级等级不足，请先联系上级升级！");
+		}
+		var bid	=	api.pageParam.bid;
+		// alert(bid);
+		var lvnow	=	api.pageParam.lvnow;
+		var lvto	=	api.pageParam.lvto;
+		var needMny	=	api.pageParam.needMny;
+		$('#needMny').html(needMny);
+		$('#lvnow').attr("src","../image/grade-"+lvnow+".png");
+		$('#lvto').attr("src","../image/grade-"+lvto+".png");
+		showLoading('数据加载中...');
+		var url = ApiUrl + 'User/getmemberinfo';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:bid,
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			success : function(data) {
+				// api.alert({msg:data});
+				if(data.status!=false){
+					$('#QQ').html(data.qqaccout);
+					$('#wex').html(data.weixinaccout);
+					$('#mobile').html(data.mobile);
+					$('#call').attr('href','tel:'+data.mobile);
+					closeLoading();						
+				}else{
+					api.alert({msg:data.info});
+					closeLoading();
+				}
+			},
+		})	
+	}
+
+	function copyQQ () {
+		var QQ 	=	$('#QQ').html();
+		var paste = api.require('pasteboard');
+		var param = {value:QQ};
+		paste.paste(param,function(ret,err){
+		    if (ret.status){
+		        msg_t('复制成功');
+		    } else{
+		    	msg_t('复制失败，请重试');
+		    }
+		})
+	}
+
+	function copyWex () {
+		var wex 	=	$('#wex').html();
+		var paste = api.require('pasteboard');
+		var param = {value:wex};
+		paste.paste(param,function(ret,err){
+		    if (ret.status){
+		        msg_t('复制成功');
+		    } else{
+		    	msg_t('复制失败，请重试');
+		    }
+		})
+	}
+
+ 	function saveToPic () {
+		var screenClip = api.require('screenClip');
+		screenClip.screenShot({
+			album:true
+		},function( ret, err ){        
+		    if( ret.status ){
+		        msg_t('已保存至手机相册');
+		    }
+		});
+	}
+
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+</script>
+</body>
+</html>

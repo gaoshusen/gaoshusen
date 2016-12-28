@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<style type="text/css">
+		.submit {text-align: center;}
+		.submit a{
+			background: #F3715E;
+		    display: inline-block;
+		    width: 200px;
+		    height: 28px;
+		    line-height: 28px;
+		    text-align: center;
+		    font-size: 14px;
+		    color: #fff;
+		    border: none;
+		    -webkit-border-radius: 5px;
+		    -moz-border-radius: 5px;
+		    border-radius: 5px;
+		}
+	</style>
+</head>
+<body class="bg_f5f5f5">
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>安全密码设置</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="passwordback" >
+			<form action="">
+				<ul>
+					
+					<!-- <li class="inp">
+						<label for="">手机号码：</label>
+						<input type="text" class="" name="" placeholder="13231648721">					
+						<a href="javascript:;" class="send">获取验证码</a>
+					</li>
+					<li class="inp">
+						<label for="">验证码：</label>
+						<input type="text" class="" name="" placeholder="2434542">
+					</li> -->
+					<li class="inp">
+						<label for="">验证原密码：</label>
+						<input type="password" class="" id="oldPwd" placeholder="如从未设置安全密码请留空">
+					</li>
+					<li class="inp">
+						<label for="">输入新密码：</label>
+						<input type="password" class="" id="newPwd" placeholder= "请设置新密码">
+					</li>
+					<li class="inp">
+						<label for="">确认新密码：</label>
+						<input type="password" class="" id="rePwd" placeholder="再次输入新密码进行验证">
+					</li>
+					
+				</ul>
+				<div class="submit"><a onclick="change();">确认修改</a></div>
+			</form>
+			
+		</section>
+
+	</article>
+
+	
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+	}
+	function change () {
+		var oldPwd	=	$('#oldPwd').val();
+		var newPwd	=	$('#newPwd').val();
+		var rePwd	=	$('#rePwd').val();
+
+		if (newPwd.length<6) {
+			msg_t("密码长度小于6");
+			return false;
+		};
+		if (newPwd!=rePwd) {
+			msg_t("两次输入的新密码不一致");
+			return false;
+		};
+		if (newPwd==oldPwd) {
+			msg_t("新密码不能和旧密码一致");
+			return false;
+		};
+
+		showLoading('数据提交中...');
+		var url = ApiUrl + 'User/changesafe';
+ 		$.ajax({
+ 			url : url,
+ 			data : {			
+ 				mid:localStorage.memberID,
+ 				oldpwd:oldPwd,
+ 				newpwd:newPwd
+ 			},
+ 			dataType : 'json', //服务器返回json格式数据
+ 			type : 'post', //
+ 			success : function(data) {
+ 				// api.alert({msg:data});
+ 				if(data.status!=false){
+ 					msg_t(data.info,2000);
+ 					closeLoading();						
+ 				}else{
+ 					msg_t(data.info);
+ 					closeLoading();
+ 				}
+
+ 			},
+ 		})
+	}
+
+	function goBack () {
+		goWeb('profile');
+		api.closeToWin({
+		    name: 'profile'
+		});
+	}
+</script>
+</body>
+</html>

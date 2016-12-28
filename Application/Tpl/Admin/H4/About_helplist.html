@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>JUNGO会员管理系统后台 - 目录管理</title>
+
+    <link href="__PUBLIC__/H4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/style.min.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>关于我们 <small>列表，清单</small></h5>
+                        <div class="ibox-tools">
+                            <a title="刷新当前页面" href="javascript:location.replace(location.href);">
+                                <i class="fa fa-refresh"></i>
+                            </a> 
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>                            
+                        </div>
+                    </div>
+
+                    <div class="ibox-content">
+                        <div class="">
+                          <a onclick="webAdd();" href="javascript:void(0);" class="btn btn-primary ">新增问答</a>
+                        </div>
+                        <table class="table table-border table-bordered table-hover table-bg" id="menutable">
+                          <thead>
+                            <tr class="text-c">
+                              <th width="50">编号</th>
+                              <th>标题</th>
+                              <th width="170">发布时间</th>
+                              <th width="60">状态</th>
+                              <th width="120">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tb">
+                          <volist name="list" id="F">
+                          
+                          <tr class="text-c">
+                            <td><{$F.id}></td>
+                            <td><{$F.title}></td>
+                            <td class="text-l"><{$F.addtime|date="Y-m-d H:i:s",###}></td>
+                            <td onclick="switchStatus(<{$F.id}>);"><eq name="F.status" value="1"> <span class="label label-success">启用</span> <else /><span class="label label-danger">停用</span></eq></td>
+                            <td class="f-14"><a title="编辑" href="javascript:;" onClick="webEdit(<{$F['id']}>)" style="text-decoration:none"><i class="fa fa-edit"></i></a>&nbsp; <a title="删除" href="javascript:;" onClick="webDel(<{$F['id']}>)" class="ml-5" style="text-decoration:none"><i class="fa fa-trash"></i></a></td>
+                          </tr>                           
+                           
+                          </volist>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 全局js -->
+    <script src="__PUBLIC__/H4/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/H4/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/H4/js/jquery.treetable.js"></script>
+    <script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/H4/js/jquery.form.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      
+        $.treetable.defaults={
+          id_col:0,//ID td列 {从0开始}
+          parent_col:1,//父ID td列
+          handle_col:3,//加上操作展开操作的 td列
+          order_col:0,
+          open_img:"__PUBLIC__/H4/img/minus.gif",
+          close_img:"__PUBLIC__/H4/img/plus.gif"
+        }
+        
+        // //只能应用于tbody
+        // $("#tb").treetable();
+        
+        // //应用样式
+        // $("#tb tr:even td").addClass("alt");
+        // $("#tb tr").find("td:eq(2)").addClass("spec");
+        // $("#tb tr:even").find("td:eq(2)").removeClass().addClass("specalt");
+        
+        // //隐藏数据列
+        // $("#tb tr").find("td:eq(1)").hide();
+        // $("#menutable tr:eq(0)").find("th:eq(1)").hide();
+      });
+
+      function webAdd (mid) {
+        layer.open({
+            type:2,
+            title: ['新增内容','background:#438EB9;color:#fff;'],
+            content: "<{:U('addweb')}>?mid="+mid+"&type=1",
+            area:['740px', ($(window).height() - 50) +'px'],
+            closeBtn:1,
+            shade:[0.6, '#000'],
+        });   
+      };
+
+      function webEdit (mid) {
+        layer.open({
+            type:2,
+            title: ['编辑内容','background:#438EB9;color:#fff;'],
+            content: "<{:U('editweb')}>?mid="+mid+"&type=1",
+            area:['740px', ($(window).height() - 50) +'px'],
+            closeBtn:1,
+            shade:[0.6, '#000'],
+        }); 
+      };
+
+      function webDel (mid) {   
+        layer.confirm('是否删除当前内容?', {icon: 3, title:'删除确认'}, function(index){
+            $(this).ajaxSubmit({
+              type:"get",
+              url:"<{:U('delweb')}>",
+              data:{
+                  'mid':mid
+                },
+              dataType: "json",
+              success: function(result){
+                var getStatu=result.status;
+                if (getStatu==0) 
+                  {
+                    layer.msg(result.info,{icon:2});
+                  }
+                  else
+                  {
+                    var getData=result.data;
+                    layer.msg(result.info, {icon:1,time:300},function(){
+                      location.href="";
+                    }); 
+                  };
+               }
+            });
+        }); 
+      }
+      
+      function switchStatus (mid) {   
+        layer.confirm('是否切换当前内容的状态?', {icon: 3, title:'切换确认'}, function(index){
+            $(this).ajaxSubmit({
+              type:"get",
+              url:"<{:U('onoff')}>",
+              data:{
+                  'mid':mid
+                },
+              dataType: "json",
+              success: function(result){
+                var getStatu=result.status;
+                if (getStatu==0) 
+                  {
+                    layer.msg(result.info,{icon:2});
+                  }
+                  else
+                  {
+                    var getData=result.data;
+                    layer.msg(result.info, {icon:1,time:300},function(){
+                      location.href="";
+                    }); 
+                  };
+               }
+            });
+        }); 
+      }
+    </script>
+    </script>
+
+</body>
+
+</html>  

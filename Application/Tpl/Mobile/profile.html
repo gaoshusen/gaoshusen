@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>我的资料</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="profile" >
+			<section class="sect01">
+				
+				<p class="name" id="usrName"></p>
+				<p class="qq p2" style="width:200px;">
+					会员编号：<span id="msign"></span>
+				</p>
+				<p class="grade"><img id="lvImg" src="" alt=""></p>
+				<p class="qq p2">
+					<img src="../image/alipay.png" alt="">
+					<span id="QQ"></span>
+				</p>
+				<p class="weixin p2">
+					<img src="../image/weixin-2.png" alt="">
+					<span id="wex"></span>
+				</p>
+				<p class="phone p2">
+					<img src="../image/phone-1.png" alt="">
+					<span id="mobile"></span>
+				</p>
+			</section>
+			
+			<section class="sect02">
+				<ul>
+					<li><a onclick="goWeb('editinfo');">资料修改</a></li>
+					<li><a onclick="goWeb('changepwd')">登录密码修改</a></li>
+					<li><a onclick="goWeb('changesafe');">安全密码修改</a></li>
+				</ul>
+				<p class="btn">
+					<a class="sub" onclick="logout();">安全退出</a>
+				</p>
+			</section>
+
+			
+		</section>
+
+	</article>
+
+	
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script type="text/javascript">
+ 	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+		
+ 		$('#usrName').html(localStorage.mname);
+ 		$('#msign').html(localStorage.msign);
+		$('#lvImg').attr("src","../image/"+localStorage.lvimg);
+		$('#QQ').html(localStorage.qqaccout);
+		$('#wex').html(localStorage.weixinaccout);
+		$('#mobile').html(localStorage.mobile);
+ 	}
+
+	function logout	() {
+		showLoading('用户退出中...');
+		var url = ApiUrl + 'User/memlogout';
+		var deviceId = api.deviceId;	//取设备惟一标识符
+		var mid = localStorage.memberID;	//取设备惟一标识符
+		
+		$.ajax({
+			url : url,
+			data : {			
+				mid:mid,
+				devID:deviceId
+			},
+			dataType : 'json', //服务器返回json格式数据
+			async: false,
+			type : 'post', //
+			success : function(data) {
+				// alert(data);
+				if(data.status!=false){
+					localStorage.memberID	="";
+					localStorage.msign		="";
+					localStorage.addtime	="";
+					localStorage.qrsrc		="";
+					localStorage.wxid 		="";
+					localStorage.wxid_app	="";
+					localStorage.qqid 		="";
+					localStorage.qqid_app	="";
+					localStorage.pid		="";
+					localStorage.qqaccout	="";
+					localStorage.weixinaccout="";
+					goIndex();
+					api.closeToWin({
+					    name: 'Index'
+					});
+				}else{
+					msg_t(data.info);
+					closeLoading();
+				}
+			}
+		})
+		// alert('addd');
+	}
+
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+	$(".profile .sect01 .p2 span").click(function(){
+		return false;
+	});
+</script>
+</body>
+</html>

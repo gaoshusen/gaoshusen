@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/phone/css/style.css">
+</head>
+<body>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" href="{:U('Index/index')}">&lt;&nbsp;返回</a>
+		<h1>红包结果</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="iResult" >
+
+			<section class="res01">
+				<div class="bg">
+					<span class="circle">
+						<img id="ad_logo" src="" style="border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;-o-border-radius:50%;">
+					</span>
+				</div>				
+			</section>
+
+			<section class="res02">
+				<p class="tit" id="title"></p>
+				<p class="tib"><span class="money" id="getMny"></span></p>
+			</section>
+
+			<section class="res03">
+				<div class="adv"><img id="adv_pic" src="" alt=""></div>
+			</section>
+
+			<section class="res04">
+				<p class="msg">您的红包已经放入余额中,请在个人中心中查看</p>
+				<p class="msg">已领取:<span id="leftNum"></span>/<span id="totalNum"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 剩余:<span id="leftMny"></span>/<span id="totalMny"></span></p>
+				<ul class="record" id="get_list">
+				</ul>
+			</section>
+			
+		</section>
+
+	</article>
+<!-- js start -->
+<script src="__PUBLIC__/phone/script/api.js"></script>
+<script src="__PUBLIC__/phone/script/jquery-1.9.1.min.js"></script>
+<script src="__PUBLIC__/phone/script/swiper.min.js"></script>
+<script src="__PUBLIC__/phone/script/system.js"></script>
+<script type="text/javascript">
+	$(function(){
+	  	// showLoading('数据加载中...');
+      	var pid= '{$pid}';
+      	var mid= '{$mid}';
+      	var types= '{$types}';
+	  	getResult(mid,pid,types);
+	  	
+	 // 	api.addEventListener({			//拦截手机的返回按键动作
+	 //        name : 'keyback'
+		// }, function(ret, err) {
+		// 	// alert('aaa');
+		// 	goBack();
+		// })
+	})
+	function getResult (mid,pid,tp) {
+		var url = ApiUrl + 'Packet/showpacket';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:mid,
+				pid:pid,
+				types:tp,
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'get', //
+			success : function(data) {
+				// alert(data);
+				if(data.status!=false){
+					var getInfo	=	data.getInfo;
+					if(tp=='packet'){
+						if (getInfo!=null) {
+							if (!getInfo.papernum) {
+								getNums =	"0";
+							}else{
+								getNums =	getInfo.papernum;
+							};
+						}else{
+							getNums =	"0";
+						};
+						var getNum = "升级券：<i style='font-size: 40px;font-weight: bolder;'>"+getNums+"</i>张";
+						var totalMny = data.papernum;
+						var leftMny = data.now_papernum;
+					}else{
+						if (getInfo!=null) {
+							if (!getInfo.getmny) {
+								getNums =	"0";
+							}else{
+								getNums =	getInfo.getmny;
+							};
+						}
+						var getNum = "RMB：<i style='font-size: 40px;font-weight: bolder;'>"+getNums+"</i>元";
+						var totalMny = data.money;
+						var leftMny = data.mny_now;
+					}
+
+					$('#title').html(data.title+"的红包");
+					$('#getMny').html(getNum);
+					$('#leftNum').html(data.getnum);
+					$('#totalNum').html(data.nums);
+					$('#leftMny').html(leftMny);
+					$('#totalMny').html(totalMny);
+					// alert(data.ad_pic);
+					$('#ad_logo').attr("src",data.logo);
+					$('#adv_pic').attr("src",data.ad_pic);
+					
+					var getlist = data.getlist;
+					var getHtml = '';
+					for (var i = getlist.length - 1; i >= 0; i--) {
+						var getUsr = getlist[i];
+						if(tp=='packet'){
+							var getNumS = "<i>"+getUsr.papernum+"</i>张";
+						}else{
+							var getNumS = "<i>"+getUsr.getmny+"</i>元";
+						}
+						getHtml += '<li>'
+								+		'<p class="p1">'
+								+			'<span class="name">'+getUsr.getName+'</span>'
+								+			'<span class="grade"><img src="__PUBLIC__/phone/image/'+getUsr.lvImg+'" alt=""></span>'
+								+		'</p>'
+								+		'<p class="p2">'+getUsr.stime+'</p>'
+								+		'<span class="money">'+getNumS+'</span>'
+								+	'</li>';
+					};
+					// alert(getHtml);
+					$('#get_list').append(getHtml);
+					api.hideProgress();
+				}
+			}
+		})
+	}
+
+	function goBack () {
+		goIndex();
+		api.closeToWin({
+		    name: 'index'
+		});
+	}
+</script>
+
+</body>
+</html>

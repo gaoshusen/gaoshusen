@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<div class="iPop_mask"></div>
+	<div class="iPop_balance">
+		<p class="tit">
+			<span class="tt">请输入安全密码：</span>
+			<span class="close"><img src="../image/close-1.png" alt=""></span>
+		</p>
+		<div class="tim">			
+			<p class="left"></p>
+			<p><input type="password" class="pass" /></p>
+			<br>	
+		</div>
+		<div class="tib"><a href="javascript:;" class="sub">确认</a></div>
+	</div>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>我要升级</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="ugapplay nameHead" >
+			<section class="sect01">
+				<p>
+					<span class="name" id="usrName"></span>
+					<span class="grade"><img id="lvImg" src="" alt=""></span>
+				</p>
+			</section>
+			
+			<section class="sect02">
+				<p class="msg">您的等级变化</p>
+				<p class="alter">
+					<span class="grade"><img id="frmLv" src="" alt=""></span>
+					<span class="arrow"><img src="../image/arrow-1.png" alt=""></span>
+					<span class="grade"><img id="toLv" src="" alt=""></span>
+				</p>
+			</section>
+
+			<section class="sect03">
+				<p class="tit" id="upMsg"></p>
+				<div class="tim">
+					<p>
+						<span class="name" id="bname"></span>
+						<input id="bid" type="hidden" value="">
+						<span class="grade"><img id="blv" src="" alt=""></span>
+					</p>
+				</div>
+				<p class="tib">本次升级需要向TA支付<span id="msg_need"></span>元.</p>
+				<p class="btn"><a class="sub" >申请升级</a></p>
+			</section>
+		</section>
+
+	</article>
+
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script type="text/javascript">
+	var lvTo = 0;
+	var lvNow	=	0;
+	var needMny =	0;
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+		api.addEventListener({
+        	name : 'viewappear'
+        }, function(ret, err) {
+           getDefault();	//取得初始数据		   
+        });		
+ 	}
+
+ 	function getDefault () {
+ 		lvNow	=	localStorage.level;
+		lvTo	=	Number(lvNow)+1;
+		var needMny = getNeedMny();
+		getLvBoss(lvTo);		//取得升级的审批对象
+
+		// alert(needMny);
+		$('#upMsg').html("您的升级将由您的第"+lvTo+"层上线会员完成：");
+		$('#msg_need').html(needMny);
+ 		$('#usrName').html(localStorage.mname);
+		$('#frmLv').attr("src","../image/"+localStorage.lvimg);
+		$('#lvImg').attr("src","../image/"+localStorage.lvimg);
+		$('#toLv').attr("src","../image/grade-"+lvTo+".png");
+
+ 	}
+
+ 	function getIsSentted () {
+ 		var url = ApiUrl + 'User/issentted';
+ 		var bid = $('#bid').val();
+		$.ajax({
+			url : url,
+			data : {
+				mid:localStorage.memberID,
+ 				bid:bid,
+ 				lvto:lvTo
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			success : function(data) {
+				var needsmny =	$('#msg_need').html();
+				if (data.status) {
+					// msg_t(data.info);
+					closeLoading();
+					api.openWin({
+						name: 'upsuccess',
+						url: './upsuccess.html',
+						bounces: false,
+						slidBackEnabled:false,
+						animation:{type:"none"},
+						pageParam:{
+							result:true,
+							bid:bid,			//会员ID
+ 					        lvnow:lvNow,
+ 					        lvto:lvTo,
+ 					        needMny:needsmny	
+						}
+					});
+					closeMe();
+				}else{
+					// msg_t(data.info);
+					closeLoading();
+				}
+			}
+		})
+ 	}
+
+ 	function getNeedMny () {
+ 		var url = ApiUrl + 'User/upgrademny';
+ 		var back = '';
+		$.ajax({
+			url : url,
+			data : {
+				lvto:lvTo
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			async: false,
+			success : function(data) {
+				if (data.status) {
+					back =	data.mny;
+				}else{
+					back = 	"NaN";
+				}
+				
+			}
+		})
+		// alert('111'+back);
+		 return back;
+ 	}
+
+ 	function getLvBoss (lvto) {
+ 		if (lvto>5) {
+ 			msg_t('您已升至最高等级，无法升级了！');
+ 			return false;
+ 		};
+ 		showLoading('上线成员获取中...');
+		var url = ApiUrl + 'User/getboss';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:localStorage.memberID,
+				lvto:lvto
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post', //
+			success : function(data) {
+				// api.alert({msg:data});
+				if(data.status!=false){
+					$('#bname').html(data.bname);
+					$('#bid').val(data.bid);
+					getIsSentted();		//检测当前等级的申请是否提交过
+					var blevel = data.blevel;
+					$('#blv').attr("src","../image/grade-"+blevel+".png");
+					closeLoading();						
+				}else{
+					msg_t(data.info);
+					closeLoading();
+				}
+			},
+		})	
+ 	}
+
+ 	function upGradeMe (password) {
+ 	// 	var paperNum	=	api.pageParam.papernum;
+		// if (Number(paperNum)<lvTo) {
+		// 	msg_t('当前升级券不足！');
+		// 	return false;
+		// };
+ 		var bid = $('#bid').val();
+ 		showLoading('申请提交中...');
+ 		$(".iPop_balance .tim p input").val('')
+ 		var url = ApiUrl + 'User/upgrademe';
+ 		$.ajax({
+ 			url : url,
+ 			data : {			
+ 				mid:localStorage.memberID,
+ 				bid:bid,
+ 				lvto:lvTo,
+ 				paypass:password
+ 			},
+ 			dataType : 'json', //服务器返回json格式数据
+ 			type : 'post',	
+ 			success : function(data) {
+ 				// api.alert({msg:data});
+ 				if(data.status!=false){
+ 					var needsmny =	$('#msg_need').html();
+ 					// alert(needsmny);
+ 					if (data.status==1) {
+ 						api.openWin({
+							name: 'upsuccess',
+							url: './upsuccess.html',
+							bounces: false,
+							slidBackEnabled:false,
+							animation:{type:"none"},
+							pageParam:{
+								result:false,
+								bid:bid,			//会员ID
+	 					        lvnow:lvNow,
+	 					        lvto:lvTo,
+	 					        needMny:needsmny	
+							}
+						});
+						// return false;
+ 					}else{
+						// alert(bid);
+						api.openWin({
+						    name: 'upsuccess',
+						    url: './upsuccess.html',
+						    pageParam: {
+						    	result:true,
+						        bid:bid,			//会员ID
+						        lvnow:lvNow,
+						        lvto:lvTo,
+						        needMny:needsmny		
+						    } 					 
+						});	 						
+ 					}
+ 					closeLoading();	
+ 					closeMe();					
+ 				}else{
+ 					msg_t(data.info);
+ 					closeLoading(); 					
+ 					if (data.go==1) {
+ 						goWeb('changesafe');
+ 					};
+ 				}
+
+ 			},
+ 		})	
+ 	}
+
+ 	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+
+		
+		//弹窗弹窗；
+		$(".ugapplay .sect03 .btn .sub").click(function(){
+			var paperNum	=	api.pageParam.papernum;
+			// if (Number(paperNum)<lvTo) {
+			// 	msg_t('当前升级券不足！');
+			// 	return false;
+			// };
+			$(".iPop_mask").show();
+			$(".iPop_balance").show();			
+				
+			return false;		
+		});
+
+		//关闭弹窗；
+		$(".iPop_balance .tit .close").click(function(){
+			$(".iPop_balance").hide();
+			$(".iPop_mask").hide();
+			toPass_fn(null);
+		});
+
+		$(".iPop_balance .tib .sub").click(function(){
+			$(".iPop_balance").hide();
+			$(".iPop_mask").hide();
+			toPass_fn($(".iPop_balance .tim p input").val());
+		});
+
+		function toPass_fn(iPass){
+			if (iPass==null || iPass=='') {
+				alert('请输入安全密码！');
+				$(".iPop_balance .tim p input").val('')
+				return false;
+			};
+			upGradeMe(iPass);
+		}
+
+
+</script>
+</body>
+</html>

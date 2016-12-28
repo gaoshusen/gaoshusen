@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link href="__PUBLIC__/H4/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__PUBLIC__/H4/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/H4/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="__PUBLIC__/H4/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script src="__PUBLIC__/H4/js/jquery.min.js?v=2.1.4"></script>
+	<script src="__PUBLIC__/H4/js/jquery.form.js"></script>
+	<script src="__PUBLIC__/H4/js/plugins/layer/layer.js"></script>
+	<script src="__PUBLIC__/H4/js/jquery.ztree.core-3.5.js"></script>
+	<script src="__PUBLIC__/H4/js/jquery.ztree.excheck-3.5.js"></script>
+	
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true
+			},
+			data: {
+				simpleData: {
+				enable: true
+				}
+			},
+			callback: {
+				beforeClick: beforeClick,
+				onCheck: onCheck
+			}
+
+		};
+
+		function beforeClick(treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.checkNode(treeNode, !treeNode.checked, null, true);
+			return false;
+		}
+		
+		function onCheck(e, treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nodes = zTree.getCheckedNodes(true),
+			v = "";
+			for (var i=0, l=nodes.length; i<l; i++) {
+				v += nodes[i].id + ",";
+			}
+			if (v.length > 0 ) v = v.substring(0, v.length-1);
+			var menuData = $("#menuData");
+			menuData.val(v);
+		}
+
+		var zNodes =<{$dataNodes}>;
+		
+		$(document).ready(function(){
+			var zTree = $.fn.zTree.init($("#treeDemo"), setting, zNodes);			
+			zTree.setting.check.chkboxType = { "Y" : "ps", "N" : "ps" };
+		});
+
+		function authorPost () {
+			$("#authorForm").ajaxSubmit({
+		       type: "post",
+		       url: "<{:U('authorupdate')}>",
+		       dataType: "json",
+		       success: function(result){
+		          var getStatu=result.status;
+		          if (getStatu==0) 
+		            {
+		              layer.msg(result.info,{icon:2});
+		            }
+		            else
+		            {
+		              var getData=result.data;
+		              layer.msg(result.info,{icon:1,time:300},function(){
+		              	parent.location.href=getData;
+		              });		              
+		            };
+		        }
+		   });
+		}
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+<h2>对当前用户分配权限</h2>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>		 
+	</div>
+	<div class="zTreeDemoBackground left" style="padding-top:30px;">
+	<form id="authorForm" method="post">		
+		<input name="rid" type="hidden" value="<{$rid}>" >
+		<input id="menuData" name="menuData" type="hidden" value="<{$midd}>" >
+		<button class="btn btn-primary" type="button" onclick="authorPost()" ><i class="icon-ok"></i> 确认提交</button>
+	</form>
+	</div>
+</div>
+</BODY>
+</HTML>

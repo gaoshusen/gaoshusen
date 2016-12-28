@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title></title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<div class="iPop_mask"></div>
+	<div class="iPop_ugmanage">
+		<p class="tit">
+			<span class="tt"><img src="../image/alert-1.png" alt="">升级提醒</span>
+			<span class="close"><img src="../image/close-1.png" alt=""></span>
+		</p>
+		<div class="tim">
+			<p>本次升级消耗:<span id="needPaper"></span>张升级券</p>
+			<p>您现在拥有:<span id="totalPaper"></span>张升级券</p>
+		</div>
+		<div class="tie">
+			<p><span>请输入安全密码：</span></p>
+			<p><input type="password" class="pass" /></p>
+		</div>
+		<div class="tib"><a class="sub">确认升级</a></div>
+	</div>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>升级管理</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="ugmanage" >
+			<ul id="up_list">
+			</ul>
+		</section>
+
+	</article>
+
+	
+
+
+
+<!-- js start -->
+<!-- js start -->
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script>
+	var iTop = 0;
+	var minid = 0;
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+		api.addEventListener({
+        	name : 'viewappear'
+        }, function(ret, err) {
+           getUpList();	//取得初始数据                                
+        });
+	}
+	$(function(){
+		function index_resizeFn(){
+			var iWindowWidth = $(window).width();
+			var iWindowHeight = $(window).height();
+
+			//弹窗定位；
+			$(".iPop_ugmanage").css({
+				"top":iWindowHeight/2-$(".iPop_ugmanage").outerHeight()/2+"px"
+			});
+		}
+
+		index_resizeFn();
+		var iTimer = null;
+		$(window).resize(function(){
+			clearTimeout(iTimer);
+			iTimer = setTimeout(function(){
+				index_resizeFn();
+			},100);			
+		});
+
+		var iTimer2 = null;
+		$(window).scroll(function(){
+			clearTimeout(iTimer2);
+			iTimer2 = setTimeout(function(){
+				scrollToNew_fn();
+			},100);		
+		});
+
+		function scrollToNew_fn(){
+			if($(window).height()+$(window).scrollTop()>iTop-10){
+				getUpList();
+			}
+		}
+	});
+	function getUpList () {
+		var totalPaper	=	localStorage.paperNum;
+		$('#totalPaper').html(totalPaper);
+		showLoading('数据加载中...');
+		var url = ApiUrl + 'User/getuplist';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:localStorage.memberID,
+				minid:minid
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post',	
+			success : function(data) {
+				// api.alert({msg:data});
+				var listHtml=	"";
+				if(data.status!=false){
+					for (var i = data.length - 1; i >= 0; i--) {
+						var upData	=	data[i];
+						if (upData['status']==0) {
+							var li_staus	=	"li_do";
+							var btnTitle	=	"确定升级";
+						}else{
+							var li_staus	=	"li_done";
+							var btnTitle	=	"已升级";
+						};
+						var lvOld	=	Number(upData.levelto)-1;
+						listHtml+=	'<li class="'+li_staus+'">'
+								+		'<div class="liL">'
+								+			'<p class="tit">'
+								+				'<span class="name" data-upid="'+upData.ID+'" data-need="'+upData.levelto+'">'+upData.fromName+'</span>'
+								+				'<span class="id">ID:'+upData.fromSign+'</span>'
+								+			'</p>'
+								+			'<p class="alter">'
+								+				'<span class="grade"><img src="../image/grade-'+lvOld+'.png" alt=""></span>'
+								+				'<span class="arrow"><img src="../image/arrow-1.png" alt=""></span>'
+								+				'<span class="grade"><img src="../image/grade-'+upData.levelto+'.png" alt=""></span>'
+								+			'</p>'
+								+			'<p class="date">申请日期：<span>'+upData.fromtime+'</span></p>'
+								+		'</div>'
+								+		'<div class="liR">'
+								+			'<p class="btn"><a class="sub">'+btnTitle+'</a></p>'
+								+		'</div>'
+								+	'</li>';
+					};
+					$('#up_list').append(listHtml);
+					minid += 5;
+					// alert(minid);
+					closeLoading();				
+				}else{
+					msg_t(data.info);
+					closeLoading();
+				}
+				iTop = $(".iArticle").outerHeight();
+			},
+		})	
+	}
+	function agreeUp (pass,upid) {
+		showLoading('申请提交中...');
+		var url = ApiUrl + 'User/upagree';
+		$.ajax({
+			url : url,
+			data : {			
+				mid:localStorage.memberID,
+				upid:upid,
+				paypass:pass
+			},
+			dataType : 'json', //服务器返回json格式数据
+			type : 'post',	
+			success : function(data) {
+				// api.alert({msg:data});
+				if(data.status!=false){
+					msg_t(data.info);
+					localStorage.paperNum	=	data.leftPaper;
+					$('#up_list').html('');
+					minid	=	0;
+					getUpList();
+					closeLoading();				
+				}else{
+					msg_t(data.info);
+					closeLoading();
+				}
+
+			},
+		})	
+	}
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+</script>
+
+<script>	
+	$(function(){
+		var upID = null;
+
+		//弹窗弹窗；
+		$(".ugmanage").delegate('.li_do .liR .sub','click',function(){
+			upID = $(this).closest(".li_do").find(".name").data("upid");
+			need = $(this).closest(".li_do").find(".name").data("need");
+			$("#needPaper").html(need);
+			console.log(upID);
+
+			$(".iPop_mask").show();
+			$(".iPop_ugmanage").show();	
+			return false;		
+		});
+
+		//关闭弹窗；
+		$(".iPop_ugmanage").delegate('.tit .close','click',function(){
+			toPass_fn(null);
+			$(".iPop_ugmanage").hide();
+			$(".iPop_mask").hide();
+		});
+		$(".iPop_ugmanage").delegate('.tib .sub','click',function(){			
+			toPass_fn($(".iPop_ugmanage .tie p input").val());
+			$(".iPop_ugmanage").hide();
+			$(".iPop_mask").hide();
+		});
+
+		function toPass_fn(iPass){
+			if (iPass==null || iPass=='') {
+				alert('请输入安全密码！');
+				$(".iPop_ugmanage .tie p input").val('');
+				return false;
+			};
+			agreeUp(iPass,upID);
+		}
+	});
+	
+</script>
+<!-- js end -->
+</body>
+</html>

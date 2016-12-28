@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="your,keywords,separated ">
+	<meta name="description" content="150 chars">
+	<title>客户服务</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+	<!-- header -->
+	<header class="iHeader">
+		<a class="backTo" onclick="goBack();">&lt;&nbsp;返回</a>
+		<h1>客户服务</h1>
+	</header>
+
+	<!-- article -->
+	<article class="iArticle">
+		<!-- <div class="iArticle_bg"></div> -->
+
+		<section class="iClientService" >
+
+			<p class="ques">在使用中遇到什么问题及困难？</p>
+			<p class="quesList">
+				<span class="client">支付问题</span>
+				<span>BUG提交</span>
+				<span>体现提交</span>
+			</p>
+			<div class="ans">
+				<textarea name="" ></textarea>
+			</div>
+			<p class="uploadPic">
+				<a href="javascript:;"><img src="../image/add-1.png" alt=""></a>
+			</p>
+			<p class="sub"><a href="">提交</a></p>
+
+		</section>
+
+	</article>
+
+
+<!-- js start -->
+<script src="../script/api.js"></script>
+<script src="../script/jquery-1.9.1.min.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/system.js"></script>
+<script>
+	apiready = function(){
+		api.addEventListener({			//拦截手机的返回按键动作
+	        name : 'keyback'
+		}, function(ret, err) {
+			goBack();
+		});
+	}
+	$(function(){
+		function index_resizeFn(){
+			var iWindowWidth = $(window).width();
+			var iWindowHeight = $(window).height();
+			$(".iModal_adv").css({
+				"height": iWindowWidth*0.8/623*885+"px",
+				"marginLeft": -iWindowWidth*0.4+"px",
+				
+			});
+
+			
+		}
+
+		index_resizeFn();
+		var iTimer = null;
+		$(window).resize(function(){
+			clearTimeout(iTimer);
+			iTimer = setTimeout(function(){
+				index_resizeFn();
+			},100);			
+		});
+	});
+	
+	function goBack () {
+		goUcenter();
+		api.closeToWin({
+		    name: 'ucenter'
+		});
+	}
+</script>
+<!-- js end -->
+</body>
+</html>
